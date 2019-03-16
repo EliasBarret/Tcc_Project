@@ -51,7 +51,12 @@
   
   	<!-- dependencias -->
   	<dependencies>
-
+	
+	<dependency>
+    	<groupId>javax.enterprise</groupId>
+    	<artifactId>cdi-api</artifactId>
+    	<version>1.2</version>
+	</dependency>
   
   <!-- hibernate-->
 		<dependency>
@@ -85,7 +90,7 @@
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>5.3</version>
+			<version>6.2</version>
 		</dependency>
 		
 		<!-- Omnifaces -->
@@ -95,6 +100,13 @@
     		<version>1.11</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
+		<dependency>
+		    <groupId>javax.annotation</groupId>
+		    <artifactId>javax.annotation-api</artifactId>
+		    <version>1.3.2</version>
+		</dependency>
+				
 		<!-- Temas Comunit prime faces tudo em 1 -->
 		<dependency>  
 		    <groupId>org.primefaces.themes</groupId>  

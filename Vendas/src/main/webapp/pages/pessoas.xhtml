@@ -9,12 +9,17 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	template="principal.xhtml">
 
+	<h:head>
+		<!-- <link type="text/css" rel="stylesheet" href="../jquery/css/jquery-ui.css"/> -->
+
+	</h:head>
+
 	<ui:define name="pagina">
 	
 	<h:form id="formTabela">
-		<p:panel header="Pessoas Listagem">
+		<p:panel header="PESSOAS">
 			<!--  Criação de tabela com prime faces  -->
-			<p:dataTable  scrollable="true" scrollWidth="96%" semptyMessage="Nenhum registro encontrado"
+			<p:dataTable  scrollable="true" scrollWidth="98,5%" semptyMessage="Nenhum registro encontrado"
 				rows="15" paginator="true" value="#{pessoaBean.pessoas}" var="cursorPessoa" >
 				<f:facet name="header">
 					<p:commandButton value="Novo"
