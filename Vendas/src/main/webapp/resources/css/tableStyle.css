@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.table-responsive{
+  width: 100% !important;
+}
+
+.table {
+    border: 1px solid red;
+    width: 50% !important; /*Importante manter o !important rs */
+    margin: auto;
+}
+
+.table-status {
+    margin-top: 20px;
+    margin-bottom: 20px !important;
+}
