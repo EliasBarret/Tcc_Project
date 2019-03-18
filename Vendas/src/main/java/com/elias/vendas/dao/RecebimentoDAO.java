@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.dao;
+package com.elias.vendas.dao;
 
 import java.util.Date;
 import java.util.List;
@@ -7,9 +7,9 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import com.ciadainformatica.vendas.domain.Recebimento;
-import com.ciadainformatica.vendas.domain.TipoDeVenda;
-import com.ciadainformatica.vendas.util.HibernateUtil;
+import com.elias.vendas.domain.Recebimento;
+import com.elias.vendas.domain.TipoDeVenda;
+import com.elias.vendas.util.HibernateUtil;
 
 public class RecebimentoDAO  extends GenericDAO<Recebimento>{
 	

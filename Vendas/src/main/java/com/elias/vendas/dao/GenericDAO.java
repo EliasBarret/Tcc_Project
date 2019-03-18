@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.dao;
+package com.elias.vendas.dao;
 
 
 import java.lang.reflect.ParameterizedType;
@@ -10,7 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
-import com.ciadainformatica.vendas.util.HibernateUtil;
+import com.elias.vendas.util.HibernateUtil;
 
 public class GenericDAO<Entidade> {
 	

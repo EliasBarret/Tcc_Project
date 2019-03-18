@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.bean;
+package com.elias.vendas.bean;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -14,18 +14,18 @@ import javax.faces.event.ActionEvent;
 import org.omnifaces.util.Messages;
 import org.primefaces.model.chart.HorizontalBarChartModel;
 
-import com.ciadainformatica.vendas.dao.CrediarioDAO;
-import com.ciadainformatica.vendas.dao.DinheiroDAO;
-import com.ciadainformatica.vendas.dao.ItemVendaDAO;
-import com.ciadainformatica.vendas.dao.ProdutoDAO;
-import com.ciadainformatica.vendas.dao.TipoDeVendaDAO;
-import com.ciadainformatica.vendas.dao.VendaDAO;
-import com.ciadainformatica.vendas.domain.Crediario;
-import com.ciadainformatica.vendas.domain.Dinheiro;
-import com.ciadainformatica.vendas.domain.ItemVenda;
-import com.ciadainformatica.vendas.domain.Produto;
-import com.ciadainformatica.vendas.domain.TipoDeVenda;
-import com.ciadainformatica.vendas.domain.Venda;
+import com.elias.vendas.dao.CrediarioDAO;
+import com.elias.vendas.dao.DinheiroDAO;
+import com.elias.vendas.dao.ItemVendaDAO;
+import com.elias.vendas.dao.ProdutoDAO;
+import com.elias.vendas.dao.TipoDeVendaDAO;
+import com.elias.vendas.dao.VendaDAO;
+import com.elias.vendas.domain.Crediario;
+import com.elias.vendas.domain.Dinheiro;
+import com.elias.vendas.domain.ItemVenda;
+import com.elias.vendas.domain.Produto;
+import com.elias.vendas.domain.TipoDeVenda;
+import com.elias.vendas.domain.Venda;
 
 @SuppressWarnings("serial")
 @ManagedBean

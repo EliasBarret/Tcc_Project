@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.domain;
+package com.elias.vendas.domain;
 
 import java.math.BigDecimal;
 import java.util.Date;

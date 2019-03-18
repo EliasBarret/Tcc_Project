@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.bean;
+package com.elias.vendas.bean;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,8 +10,8 @@ import javax.faces.event.ActionEvent;
 
 import org.omnifaces.util.Messages;
 
-import com.ciadainformatica.vendas.dao.EstadoDAO;
-import com.ciadainformatica.vendas.domain.Estado;
+import com.elias.vendas.dao.EstadoDAO;
+import com.elias.vendas.domain.Estado;
 
 
 

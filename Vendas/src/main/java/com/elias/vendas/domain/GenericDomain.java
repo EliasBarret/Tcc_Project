@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.domain;
+package com.elias.vendas.domain;
 
 import java.io.Serializable;
 

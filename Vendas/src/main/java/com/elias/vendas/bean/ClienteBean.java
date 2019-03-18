@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.bean;
+package com.elias.vendas.bean;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,12 +10,12 @@ import javax.faces.event.ActionEvent;
 
 import org.omnifaces.util.Messages;
 
-import com.ciadainformatica.vendas.dao.ClienteDAO;
-import com.ciadainformatica.vendas.dao.EstadoDAO;
-import com.ciadainformatica.vendas.dao.PessoaDAO;
-import com.ciadainformatica.vendas.domain.Cliente;
-import com.ciadainformatica.vendas.domain.Estado;
-import com.ciadainformatica.vendas.domain.Pessoa;
+import com.elias.vendas.dao.ClienteDAO;
+import com.elias.vendas.dao.EstadoDAO;
+import com.elias.vendas.dao.PessoaDAO;
+import com.elias.vendas.domain.Cliente;
+import com.elias.vendas.domain.Estado;
+import com.elias.vendas.domain.Pessoa;
 
 @SuppressWarnings("serial")
 @ManagedBean

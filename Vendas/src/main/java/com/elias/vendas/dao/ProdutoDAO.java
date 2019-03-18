@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.dao;
+package com.elias.vendas.dao;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import com.ciadainformatica.vendas.domain.Produto;
-import com.ciadainformatica.vendas.util.HibernateUtil;
+import com.elias.vendas.domain.Produto;
+import com.elias.vendas.util.HibernateUtil;
 
 public class ProdutoDAO extends GenericDAO<Produto>{
 	

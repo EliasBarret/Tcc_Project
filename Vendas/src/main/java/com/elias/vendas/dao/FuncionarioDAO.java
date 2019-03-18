@@ -1,6 +1,6 @@
-package com.ciadainformatica.vendas.dao;
+package com.elias.vendas.dao;
 
-import com.ciadainformatica.vendas.domain.Funcionario;
+import com.elias.vendas.domain.Funcionario;
 
 public class FuncionarioDAO extends GenericDAO<Funcionario>{
 

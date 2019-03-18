@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.bean;
+package com.elias.vendas.bean;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -13,10 +13,10 @@ import javax.faces.bean.ViewScoped;
 import org.omnifaces.util.Messages;
 import org.primefaces.model.chart.HorizontalBarChartModel;
 
-import com.ciadainformatica.vendas.dao.RecebimentoDAO;
-import com.ciadainformatica.vendas.dao.TipoDeVendaDAO;
-import com.ciadainformatica.vendas.domain.Recebimento;
-import com.ciadainformatica.vendas.domain.TipoDeVenda;
+import com.elias.vendas.dao.RecebimentoDAO;
+import com.elias.vendas.dao.TipoDeVendaDAO;
+import com.elias.vendas.domain.Recebimento;
+import com.elias.vendas.domain.TipoDeVenda;
 
 
 @SuppressWarnings("serial")

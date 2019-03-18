@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.bean;
+package com.elias.vendas.bean;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,12 +10,12 @@ import javax.faces.event.ActionEvent;
 
 import org.omnifaces.util.Messages;
 
-import com.ciadainformatica.vendas.dao.CidadeDAO;
-import com.ciadainformatica.vendas.dao.PessoaDAO;
-import com.ciadainformatica.vendas.dao.UsuarioDAO;
-import com.ciadainformatica.vendas.domain.Cidade;
-import com.ciadainformatica.vendas.domain.Pessoa;
-import com.ciadainformatica.vendas.domain.Usuario;
+import com.elias.vendas.dao.CidadeDAO;
+import com.elias.vendas.dao.PessoaDAO;
+import com.elias.vendas.dao.UsuarioDAO;
+import com.elias.vendas.domain.Cidade;
+import com.elias.vendas.domain.Pessoa;
+import com.elias.vendas.domain.Usuario;
 
 
 

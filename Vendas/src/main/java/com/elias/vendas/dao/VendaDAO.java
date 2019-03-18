@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.dao;
+package com.elias.vendas.dao;
 
 import java.util.Date;
 import java.util.List;
@@ -8,9 +8,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
-import com.ciadainformatica.vendas.domain.ItemVenda;
-import com.ciadainformatica.vendas.domain.Venda;
-import com.ciadainformatica.vendas.util.HibernateUtil;
+import com.elias.vendas.domain.ItemVenda;
+import com.elias.vendas.domain.Venda;
+import com.elias.vendas.util.HibernateUtil;
 
 public class VendaDAO extends GenericDAO<Venda>{
 	

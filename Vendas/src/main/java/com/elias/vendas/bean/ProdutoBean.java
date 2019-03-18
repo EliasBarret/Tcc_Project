@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.bean;
+package com.elias.vendas.bean;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -11,12 +11,12 @@ import javax.faces.event.ActionEvent;
 
 import org.omnifaces.util.Messages;
 
-import com.ciadainformatica.vendas.dao.ClienteDAO;
-import com.ciadainformatica.vendas.dao.FabricanteDAO;
-import com.ciadainformatica.vendas.dao.ProdutoDAO;
-import com.ciadainformatica.vendas.domain.Cliente;
-import com.ciadainformatica.vendas.domain.Fabricante;
-import com.ciadainformatica.vendas.domain.Produto;
+import com.elias.vendas.dao.ClienteDAO;
+import com.elias.vendas.dao.FabricanteDAO;
+import com.elias.vendas.dao.ProdutoDAO;
+import com.elias.vendas.domain.Cliente;
+import com.elias.vendas.domain.Fabricante;
+import com.elias.vendas.domain.Produto;
 
 @SuppressWarnings("serial")
 @ManagedBean

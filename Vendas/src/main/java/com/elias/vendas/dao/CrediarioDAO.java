@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.dao;
+package com.elias.vendas.dao;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import com.ciadainformatica.vendas.domain.Crediario;
-import com.ciadainformatica.vendas.domain.Usuario;
-import com.ciadainformatica.vendas.util.HibernateUtil;
+import com.elias.vendas.domain.Crediario;
+import com.elias.vendas.domain.Usuario;
+import com.elias.vendas.util.HibernateUtil;
 
 public class CrediarioDAO extends GenericDAO<Crediario>{
 	Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();

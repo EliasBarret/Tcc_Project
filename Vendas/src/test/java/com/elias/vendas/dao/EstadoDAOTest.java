@@ -1,12 +1,12 @@
-package com.ciadainformatica.vendas.dao;
+package com.elias.vendas.dao;
 
 import java.util.List;
 
 import org.junit.Ignore;
 import org.junit.Test;
 
-import com.ciadainformatica.vendas.dao.EstadoDAO;
-import com.ciadainformatica.vendas.domain.Estado;
+import com.elias.vendas.dao.EstadoDAO;
+import com.elias.vendas.domain.Estado;
 
 public class EstadoDAOTest {
 	@Test

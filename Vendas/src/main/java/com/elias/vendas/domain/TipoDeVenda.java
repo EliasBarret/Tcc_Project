@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.domain;
+package com.elias.vendas.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

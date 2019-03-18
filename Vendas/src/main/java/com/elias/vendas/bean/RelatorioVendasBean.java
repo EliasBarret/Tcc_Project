@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.bean;
+package com.elias.vendas.bean;
 
 
 
@@ -18,8 +18,8 @@ import org.primefaces.model.chart.AxisType;
 import org.primefaces.model.chart.ChartSeries;
 import org.primefaces.model.chart.HorizontalBarChartModel;
 
-import com.ciadainformatica.vendas.dao.VendaDAO;
-import com.ciadainformatica.vendas.domain.Venda;
+import com.elias.vendas.dao.VendaDAO;
+import com.elias.vendas.domain.Venda;
 
 
 

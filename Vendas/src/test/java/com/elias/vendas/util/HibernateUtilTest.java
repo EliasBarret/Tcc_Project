@@ -1,9 +1,9 @@
-package com.ciadainformatica.vendas.util;
+package com.elias.vendas.util;
 
 import org.hibernate.Session;
 import org.junit.Test;
 
-import com.ciadainformatica.vendas.util.HibernateUtil;
+import com.elias.vendas.util.HibernateUtil;
 
 
 

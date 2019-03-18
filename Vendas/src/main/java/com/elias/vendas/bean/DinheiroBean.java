@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.bean;
+package com.elias.vendas.bean;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -9,9 +9,9 @@ import javax.faces.bean.ViewScoped;
 
 import org.omnifaces.util.Messages;
 
-import com.ciadainformatica.vendas.dao.DinheiroDAO;
-import com.ciadainformatica.vendas.dao.PessoaDAO;
-import com.ciadainformatica.vendas.domain.Dinheiro;
+import com.elias.vendas.dao.DinheiroDAO;
+import com.elias.vendas.dao.PessoaDAO;
+import com.elias.vendas.domain.Dinheiro;
 
 
 @SuppressWarnings("serial")

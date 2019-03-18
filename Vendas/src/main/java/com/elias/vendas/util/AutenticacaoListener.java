@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.util;
+package com.elias.vendas.util;
 
 
 import javax.faces.event.PhaseEvent;
@@ -8,8 +8,8 @@ import javax.faces.event.PhaseListener;
 import org.omnifaces.util.Faces;
 import org.omnifaces.util.Messages;
 
-import com.ciadainformatica.vendas.bean.AutenticacaoBean;
-import com.ciadainformatica.vendas.domain.Usuario;
+import com.elias.vendas.bean.AutenticacaoBean;
+import com.elias.vendas.domain.Usuario;
 
 
 @SuppressWarnings("serial")

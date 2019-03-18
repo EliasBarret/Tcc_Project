@@ -1,6 +1,6 @@
-package com.ciadainformatica.vendas.dao;
+package com.elias.vendas.dao;
 
-import com.ciadainformatica.vendas.domain.Fabricante;
+import com.elias.vendas.domain.Fabricante;
 
 public class FabricanteDAO extends GenericDAO<Fabricante>{
 

@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.bean;
+package com.elias.vendas.bean;
 
 import java.io.IOException;
 
@@ -9,9 +9,9 @@ import javax.faces.bean.SessionScoped;
 import org.omnifaces.util.Faces;
 import org.omnifaces.util.Messages;
 
-import com.ciadainformatica.vendas.dao.UsuarioDAO;
-import com.ciadainformatica.vendas.domain.Pessoa;
-import com.ciadainformatica.vendas.domain.Usuario;
+import com.elias.vendas.dao.UsuarioDAO;
+import com.elias.vendas.domain.Pessoa;
+import com.elias.vendas.domain.Usuario;
 
 
 @ManagedBean

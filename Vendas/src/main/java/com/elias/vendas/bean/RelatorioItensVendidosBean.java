@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.bean;
+package com.elias.vendas.bean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,9 +17,9 @@ import org.primefaces.model.chart.AxisType;
 import org.primefaces.model.chart.ChartSeries;
 import org.primefaces.model.chart.HorizontalBarChartModel;
 
-import com.ciadainformatica.vendas.dao.ItemVendaDAO;
-import com.ciadainformatica.vendas.domain.GraficoItemVenda;
-import com.ciadainformatica.vendas.domain.ItemVenda;
+import com.elias.vendas.dao.ItemVendaDAO;
+import com.elias.vendas.domain.GraficoItemVenda;
+import com.elias.vendas.domain.ItemVenda;
 
 
 

@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.Vendas;
+package com.elias.vendas.Vendas;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

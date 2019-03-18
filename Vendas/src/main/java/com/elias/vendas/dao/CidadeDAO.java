@@ -1,6 +1,6 @@
-package com.ciadainformatica.vendas.dao;
+package com.elias.vendas.dao;
 
-import com.ciadainformatica.vendas.domain.Cidade;
+import com.elias.vendas.domain.Cidade;
 
 public class CidadeDAO extends GenericDAO<Cidade>{
 

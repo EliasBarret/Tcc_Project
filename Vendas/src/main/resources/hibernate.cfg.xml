@@ -9,8 +9,8 @@
 
         <!-- configurações com bando de dados MYsql-->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://127.0.0.1:8889/banco</property>
-        <property name="connection.username">elias</property>
+        <property name="connection.url">jdbc:mysql://127.0.0.1:3306/banco</property>
+        <property name="connection.username">root</property>
         <property name="connection.password"></property>
 
         <!-- pool de conexoes -->
@@ -31,21 +31,21 @@
         <!-- cria tabelas do banco de dados-->
         <property name="hbm2ddl.auto">update</property>
         
-        <mapping class="com.ciadainformatica.vendas.domain.Recebimento"/>
-		<mapping class="com.ciadainformatica.vendas.domain.Dinheiro"/>
-		<mapping class="com.ciadainformatica.vendas.domain.Cidade"/>
-        <mapping class="com.ciadainformatica.vendas.domain.Cliente"/>
-        <mapping class="com.ciadainformatica.vendas.domain.Estado"/>
-        <mapping class="com.ciadainformatica.vendas.domain.Fabricante"/>
-        <mapping class="com.ciadainformatica.vendas.domain.Funcionario"/>
-        <mapping class="com.ciadainformatica.vendas.domain.ItemVenda"/>
-        <mapping class="com.ciadainformatica.vendas.domain.Pessoa"/>
-        <mapping class="com.ciadainformatica.vendas.domain.Produto"/>
-		<mapping class="com.ciadainformatica.vendas.domain.Usuario"/>
-		<mapping class="com.ciadainformatica.vendas.domain.Venda"/>
+        <mapping class="com.elias.vendas.domain.Recebimento"/>
+		<mapping class="com.elias.vendas.domain.Dinheiro"/>
+		<mapping class="com.elias.vendas.domain.Cidade"/>
+        <mapping class="com.elias.vendas.domain.Cliente"/>
+        <mapping class="com.elias.vendas.domain.Estado"/>
+        <mapping class="com.elias.vendas.domain.Fabricante"/>
+        <mapping class="com.elias.vendas.domain.Funcionario"/>
+        <mapping class="com.elias.vendas.domain.ItemVenda"/>
+        <mapping class="com.elias.vendas.domain.Pessoa"/>
+        <mapping class="com.elias.vendas.domain.Produto"/>
+		<mapping class="com.elias.vendas.domain.Usuario"/>
+		<mapping class="com.elias.vendas.domain.Venda"/>
 		
-		<mapping class="com.ciadainformatica.vendas.domain.Crediario"/>
-		<mapping class="com.ciadainformatica.vendas.domain.TipoDeVenda"/>
+		<mapping class="com.elias.vendas.domain.Crediario"/>
+		<mapping class="com.elias.vendas.domain.TipoDeVenda"/>
 
 		
     </session-factory>

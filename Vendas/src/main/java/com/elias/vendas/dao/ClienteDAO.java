@@ -1,6 +1,6 @@
-package com.ciadainformatica.vendas.dao;
+package com.elias.vendas.dao;
 
-import com.ciadainformatica.vendas.domain.Cliente;
+import com.elias.vendas.domain.Cliente;
 
 public class ClienteDAO extends GenericDAO<Cliente>{
 

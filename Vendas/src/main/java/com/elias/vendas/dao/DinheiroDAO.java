@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.dao;
+package com.elias.vendas.dao;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -9,10 +9,10 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import org.omnifaces.util.Messages;
 
-import com.ciadainformatica.vendas.domain.Dinheiro;
-import com.ciadainformatica.vendas.domain.Produto;
-import com.ciadainformatica.vendas.domain.Venda;
-import com.ciadainformatica.vendas.util.HibernateUtil;
+import com.elias.vendas.domain.Dinheiro;
+import com.elias.vendas.domain.Produto;
+import com.elias.vendas.domain.Venda;
+import com.elias.vendas.util.HibernateUtil;
 
 public class DinheiroDAO extends GenericDAO<Dinheiro>{
 	Dinheiro dinheiro = new Dinheiro();

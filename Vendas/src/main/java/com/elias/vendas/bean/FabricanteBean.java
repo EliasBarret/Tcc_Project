@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.bean;
+package com.elias.vendas.bean;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,8 +9,8 @@ import javax.faces.bean.ViewScoped;
 
 import org.omnifaces.util.Messages;
 
-import com.ciadainformatica.vendas.dao.FabricanteDAO;
-import com.ciadainformatica.vendas.domain.Fabricante;
+import com.elias.vendas.dao.FabricanteDAO;
+import com.elias.vendas.domain.Fabricante;
 
 
 @SuppressWarnings("serial")

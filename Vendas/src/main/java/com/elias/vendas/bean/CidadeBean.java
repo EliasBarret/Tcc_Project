@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.bean;
+package com.elias.vendas.bean;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,11 +9,11 @@ import javax.faces.bean.ViewScoped;
 
 import org.omnifaces.util.Messages;
 
-import com.ciadainformatica.vendas.dao.CidadeDAO;
-import com.ciadainformatica.vendas.dao.EstadoDAO;
-import com.ciadainformatica.vendas.domain.Cidade;
-import com.ciadainformatica.vendas.domain.Estado;
-import com.ciadainformatica.vendas.domain.Pessoa;
+import com.elias.vendas.dao.CidadeDAO;
+import com.elias.vendas.dao.EstadoDAO;
+import com.elias.vendas.domain.Cidade;
+import com.elias.vendas.domain.Estado;
+import com.elias.vendas.domain.Pessoa;
 
 
 

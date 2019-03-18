@@ -1,4 +1,4 @@
-package com.ciadainformatica.vendas.util;
+package com.elias.vendas.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
