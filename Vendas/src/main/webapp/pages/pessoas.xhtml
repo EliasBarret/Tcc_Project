@@ -82,6 +82,10 @@
 						<p:confirm header="Confirmação" message="Deseja apagar a pessoa?" icon="ui-icon-alert" />
     					<f:attribute name="pessoaSelecionada" value="#{cursorPessoa}"/>
     				</p:commandButton>
+    				
+    				<p:commandButton icon="ui-icon-pencil" actionListerner="#{pessoaBean.novo(pessoa)}" update=":mensagem :formTabela">
+    				
+    				</p:commandButton>
 				</p:column>
 				
 			</p:dataTable>
