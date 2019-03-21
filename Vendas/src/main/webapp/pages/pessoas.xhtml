@@ -83,9 +83,11 @@
     					<f:attribute name="pessoaSelecionada" value="#{cursorPessoa}"/>
     				</p:commandButton>
     				
-    				<p:commandButton icon="ui-icon-pencil" actionListerner="#{pessoaBean.novo(pessoa)}" update=":mensagem :formTabela">
-    				
+    				<!-- Chama o Form de Edição passando a pessoa selecionada -->
+    				<p:commandButton actionListener="#{pessoaBean.adicionaPessoaParaEdicao}" icon="ui-icon-wrench" oncomplete="PF('dialogoEditar').show();"  update=":mensagem :formTabela :formEditar">	
+    					<f:attribute name="pessoaSelecionada02"  value="#{cursorPessoa}" />
     				</p:commandButton>
+    				
 				</p:column>
 				
 			</p:dataTable>
@@ -153,8 +155,55 @@
 					<p:commandButton value="fechar"
 						oncomplete="PF('dialogoPessoa').hide();" />
 				</h:panelGrid>
+		</h:form>
+	</p:dialog>
+	
+	 <p:dialog widgetVar="dialogoEditar" closable="false" modal="true" resizable="false">
+		<h:form id="formEditar">
+			<h:panelGrid columns="2">
+				
+				<p:outputLabel value="Código: "/>
+				<p:inputText disabled="true" value="#{pessoaBean.pessoa.codigo}"/>
+				
+				<p:outputLabel value="Nome: "/>
+				<p:inputText value="#{pessoaBean.pessoa.nome}"/>
+				
+				<p:outputLabel for="cpf" value="CPF: " />
+				<p:inputMask id="cpf" mask="999.999.999-99" value="#{pessoaBean.pessoa.cpf}" />
+				
+				<p:outputLabel value="RG: " />
+				<p:inputText maxlength="14" value="#{pessoaBean.pessoa.rg}"/>
+				
+				<p:outputLabel value="Rua: " />
+				<p:inputText maxlength="80" value="#{pessoaBean.pessoa.rua}"/>
+				
+				<p:outputLabel value="Numero: " />
+				<p:inputText maxlength="6" value="#{pessoaBean.pessoa.numero}"/>
+				
+				<p:outputLabel value="Bairro: " />
+				<p:inputText maxlength="15" value="#{pessoaBean.pessoa.bairro}"/>
+				
+				<p:outputLabel value="CEP: " />
+				<p:inputText maxlength="15" value="#{pessoaBean.pessoa.cep}"/>
+				
+				<p:outputLabel value="Complemento: " />
+				<p:inputText maxlength="10" value="#{pessoaBean.pessoa.complemento}"/>
+				
+				<p:outputLabel for="telefone" value="Telefone: " />
+				<p:inputMask id="telefone" mask="(99)9999-9999" value="#{pessoaBean.pessoa.telefone}"/>
+				
+				<p:outputLabel for="celular" value="Celular: " />
+				<p:inputMask id="celular" mask="(99)99999-9999" value="#{pessoaBean.pessoa.celular}"/>
+				
+				<p:outputLabel value="Email: " />
+				<p:inputText maxlength="100" value="#{pessoaBean.pessoa.email}"/>
+				
+				<!-- <p:outputLabel value="Cidade"/>
+				<h:inputText  value="#{pessoaBean.pessoa.cidade}"/> -->
 			
-			
+			 	<p:commandButton value="Editar" actionListener="#{pessoaBean.editarPessoa()}" oncomplete="PF('dialogoEditar').hide();" update=":mensagem :formEditar :formTabela"/>
+				<p:commandButton value="Fechar" oncomplete="PF('dialogoEditar').hide();" />
+			</h:panelGrid>
 		</h:form>
 	</p:dialog>
 

@@ -15,6 +15,7 @@ import com.elias.vendas.dao.PessoaDAO;
 import com.elias.vendas.dao.UsuarioDAO;
 import com.elias.vendas.domain.Cidade;
 import com.elias.vendas.domain.Pessoa;
+import com.elias.vendas.domain.Produto;
 import com.elias.vendas.domain.Usuario;
 
 
@@ -101,6 +102,34 @@ public class PessoaBean implements Serializable{
 				Messages.addGlobalError("Ouve um erro na hora de apagar o usuario");
 				erro.printStackTrace();
 			}
+	}
+	
+	public void adicionaPessoaParaEdicao(ActionEvent evento){
+		try{
+		  pessoa = (Pessoa) evento.getComponent().getAttributes().get("pessoaSelecionada02");
+			//Messages.addGlobalError(pessoa.getCodigo()+ "Editado");
+		}catch(Exception erro){
+			Messages.addGlobalError("Ouve um erro");
+			erro.printStackTrace();
+		}
+	}
+	
+	public void editarPessoa(){
+		try {
+			Messages.addGlobalInfo(pessoa.getNome());
+			PessoaDAO pessoaDAO = new PessoaDAO();
+			
+			pessoaDAO.merge(pessoa);
+			
+			novo();
+			pessoa = new Pessoa();
+			pessoas = pessoaDAO.listar();
+			
+			
+		} catch (Exception erro) {
+			Messages.addGlobalError("Erro Ao editar Pessoa" + pessoa.getNome());
+		}
+		
 	}
 	
 	
