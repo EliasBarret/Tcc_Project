@@ -7,13 +7,14 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
+	<title>SCGV</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Autenticação</title>
+	<h:outputStylesheet library="css" name="menuStyle.css" />
 </h:head>
 <h:body>
 	<p:growl id="mensagem" />
 
-	<p:dialog header="Autenticação" closable="false" draggable="false"
+	<p:dialog header="BEMVINDO AO SCGV" closable="false" draggable="false"
 		resizable="false" modal="true" visible="true">
 		<h:form>
 			<h:panelGrid columns="2">
@@ -27,11 +28,12 @@
 					requiredMessage="O campo Senha é obrigatório"
 					value="#{autenticacaoBean.usuario.senha}" />
 			</h:panelGrid>
-
-			<h:panelGrid columns="1">
-				<p:commandButton value="Entrar" update=":mensagem"
-					actionListener="#{autenticacaoBean.autenticar}" />
-			</h:panelGrid>
+			
+				<h:panelGrid columns="1">
+					<p:commandButton value="Entrar" update=":mensagem"
+						actionListener="#{autenticacaoBean.autenticar}"/>
+				</h:panelGrid>
+	
 		</h:form>
 	</p:dialog>
 </h:body>

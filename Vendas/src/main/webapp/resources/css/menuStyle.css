@@ -2,6 +2,10 @@
 
 @import url('https://fonts.googleapis.com/css?family=Righteous');
 
-p, h1, footer, body{
+p, h1, footer, body, form{
+	 font-family: 'Righteous', cursive;  
+}
+.ui-dialog-title, .ui-outputlabel, .ui-button-text{
+	 text-align: center;
 	 font-family: 'Righteous', cursive;  
 }
