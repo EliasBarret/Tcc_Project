@@ -7,7 +7,7 @@
 }
 
 .divTopo {
-	padding-bottom: 80px;	
+	padding-bottom: 60px;	
 }
 
 .divCabecalho {
@@ -16,4 +16,11 @@
 .ui-widget,   
     .ui-widget .ui-widget {   
     font-size: 12px !important;   
-} 
+}
+
+.ui-panel-title{
+	font-size: 30px
+}
+.ui-panel-titlebar{
+	text-align: center;
+}

@@ -17,7 +17,7 @@
 	<ui:define name="pagina">
 	
 	<h:form id="formTabela">
-		<p:panel header="PESSOAS">
+		<p:panel style="font-size:30px" header="PESSOAS">
 			<!--  Criação de tabela com prime faces  -->
 			<p:dataTable  scrollable="true" scrollWidth="98,5%" semptyMessage="Nenhum registro encontrado"
 				rows="15" paginator="true" value="#{pessoaBean.pessoas}" var="cursorPessoa" >
@@ -101,7 +101,7 @@
 	</h:form>
 
 	<!--  janela de dialogo com prime faces  -->
-	<p:dialog widgetVar="dialogoPessoa" header="Nova pessoa"
+	<p:dialog widgetVar="dialogoPessoa" header="Cadastro de Pessoa"
 		closable="false" modal="true" resizable="false">
 		<h:form id="formCadastro">
 			<h:panelGrid columns="2">
@@ -158,8 +158,10 @@
 		</h:form>
 	</p:dialog>
 	
-	 <p:dialog widgetVar="dialogoEditar" closable="false" modal="true" resizable="false">
+	 <p:dialog header="Editar Pessoas" widgetVar="dialogoEditar" closable="false" modal="true" resizable="false">
+	  <!--  <p:panel > -->
 		<h:form id="formEditar">
+		 
 			<h:panelGrid columns="2">
 				
 				<p:outputLabel value="Código: "/>
@@ -196,15 +198,19 @@
 				<p:inputMask id="celular" mask="(99)99999-9999" value="#{pessoaBean.pessoa.celular}"/>
 				
 				<p:outputLabel value="Email: " />
-				<p:inputText maxlength="100" value="#{pessoaBean.pessoa.email}"/>
+				<p:inputText maxlength="100" value="#{pessoaBean.pessoa.email}" 
+					required="true"
+				/>
 				
 				<!-- <p:outputLabel value="Cidade"/>
 				<h:inputText  value="#{pessoaBean.pessoa.cidade}"/> -->
-			
-			 	<p:commandButton value="Editar" actionListener="#{pessoaBean.editarPessoa()}" oncomplete="PF('dialogoEditar').hide();" update=":mensagem :formEditar :formTabela"/>
-				<p:commandButton value="Fechar" oncomplete="PF('dialogoEditar').hide();" />
+				<h:panelGrid columns="2">
+				 	<p:commandButton value="Editar" actionListener="#{pessoaBean.editarPessoa()}" oncomplete="PF('dialogoEditar').hide();" update=":mensagem :formEditar :formTabela"/>
+					<p:commandButton value="Fechar" oncomplete="PF('dialogoEditar').hide();" />
+				</h:panelGrid>
 			</h:panelGrid>
 		</h:form>
+	  <!-- </p:panel> -->
 	</p:dialog>
 
 	</ui:define>
