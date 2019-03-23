@@ -1,5 +1,7 @@
 @CHARSET "UTF-8";
 
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+
 .imagemCentralizada {
 	display: block;
 	margin-left: auto;
@@ -15,7 +17,8 @@
 }
 .ui-widget,   
     .ui-widget .ui-widget {   
-    font-size: 12px !important;   
+    font-size: 12px !important; 
+    font-family: 'Righteous', cursive;  
 }
 
 .ui-panel-title{
@@ -23,4 +26,8 @@
 }
 .ui-panel-titlebar{
 	text-align: center;
+	font-family: 'Righteous', cursive;
+}
+footer{
+	font-family: 'Righteous', cursive;
 }

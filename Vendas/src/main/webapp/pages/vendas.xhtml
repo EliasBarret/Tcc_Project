@@ -13,7 +13,7 @@
 	
 	<h:form id="formTabela">
 	
-				<p:outputLabel value="Cliente: " />
+				<p:outputLabel value=" Cliente: " />
 				<p:selectOneMenu filter="true"  value="#{vendaBean.cliente}" 
 				converter="omnifaces.SelectItemsConverter">
 					<f:selectItem  noSelectionOption="true" itemLabel="Selecione um cliente" />
@@ -21,7 +21,7 @@
 					itemValue="#{cliente}" itemLabel="#{cliente.pessoa.nome} - #{cliente.codigo}"/>
 				</p:selectOneMenu>
 		
-				<p:outputLabel value="Funcionario: " />
+				<p:outputLabel value=" Funcionario: " />
 				<p:selectOneMenu filter="true"  value="#{vendaBean.funcionario}" 
 				converter="omnifaces.SelectItemsConverter">
 					<f:selectItem  noSelectionOption="true" itemLabel="Selecione um funcionario" />
@@ -29,7 +29,8 @@
 					itemValue="#{funcionario}" itemLabel="#{funcionario.pessoa.nome} - #{funcionario.codigo}"/>
 				</p:selectOneMenu>
 		
-		<p:inputText  value="#{vendaBean.codigo}" name="codigo" style="width:86%;" />
+		<p:outputLabel value=" Código do produto: " />
+		<p:inputText  value="#{vendaBean.codigo}" name="codigo" style="width:50%;" />
 		<p:inputText style="width:3%;" value="#{vendaBean.quantidade}"/>
 		<p:commandButton update=":mensagem :formTabela :formCadastro :formCrediario :formCD :formCC" actionListener="#{vendaBean.adicionarItem()}" icon="ui-icon-circle-plus">
 		</p:commandButton>

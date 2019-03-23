@@ -1,0 +1,7 @@
+@CHARSET "ISO-8859-1";
+
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+
+p, h1, footer, body{
+	 font-family: 'Righteous', cursive;  
+}
