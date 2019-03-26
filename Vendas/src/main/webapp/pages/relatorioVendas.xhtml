@@ -35,6 +35,9 @@
 					<p:column headerText="Valor">
 						<h:outputText value="#{cursorVenda.valorTotal}" />
 					</p:column>
+					<p:column headerText="Opcoes">
+						<p:commandButton icon="ui-local-printshop" update=":formTabela" />
+					</p:column>
 	
 				</p:dataTable>
 				
