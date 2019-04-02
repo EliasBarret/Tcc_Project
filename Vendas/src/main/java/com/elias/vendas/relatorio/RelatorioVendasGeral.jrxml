@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioVendasGeral" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="149ab9ca-7bea-487c-9aad-9ab14a8b719a">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[dmVuZGEgLDE1OSwxNSxkMGI5Nzc3Zi01YTc5LTRkMzItODBlNC1jMWJjYTNmYzY2YmI7cHJvZHV0
+byAsNDU1LDkyLDNiZmJkZDM3LTRmYjAtNDA1Yi1hZmJiLTExZjhkYWY2NWJiODtpdGVtdmVuZGEg
+LDMwMiw2NiwxNDg0MzY1Mi1iY2MzLTRlZTYtOGZlZi00YTVmZmI3OTJkYzU7Y2xpZW50ZSAsMTUs
+OTIsZTExY2RmY2ItNGQ4Ny00YTcyLTlkOWQtNTgwYzI0MjZmN2NlO3Blc3NvYSAsMTU5LDE1Niw4
+MGU1YzNmZC1jN2M5LTQ3N2ItYjQxYi00ZmRiMmE2ZjhmOWY7
+]]>
+	</property>
+	<parameter name="CodVenda" class="java.lang.Long"/>
 	<queryString>
-		<![CDATA[SELECT
-     venda.`valorTotal` AS venda_valorTotal,
-     pessoa.`nome` AS pessoa_nome,
-     produto.`descricao` AS produto_descricao,
-     itemvenda.`valorParcial` AS itemvenda_valorParcial,
-     itemvenda.`quantidade` AS itemvenda_quantidade,
-     venda.`codigo` AS venda_codigo
-FROM
-     `cliente` cliente INNER JOIN `venda` venda ON cliente.`codigo` = venda.`cliente_codigo`
-     INNER JOIN `pessoa` pessoa ON cliente.`pessoa_codigo` = pessoa.`codigo`
-     INNER JOIN `itemvenda` itemvenda ON venda.`codigo` = itemvenda.`venda_codigo`
-     INNER JOIN `produto` produto ON itemvenda.`produto_codigo` = produto.`codigo`]]>
+		<![CDATA[SELECT venda.valorTotal AS venda_valorTotal,
+	pessoa.nome AS pessoa_nome,
+	produto.descricao AS produto_descricao,
+	itemvenda.valorParcial AS itemvenda_valorParcial,
+	itemvenda.quantidade AS itemvenda_quantidade,
+	venda.codigo AS venda_codigo
+FROM cliente cliente
+	INNER JOIN venda venda ON 
+	 cliente.codigo = venda.cliente_codigo 
+	INNER JOIN pessoa pessoa ON 
+	 cliente.pessoa_codigo = pessoa.codigo 
+	INNER JOIN itemvenda itemvenda ON 
+	 venda.codigo = itemvenda.venda_codigo 
+	INNER JOIN produto produto ON 
+	 itemvenda.produto_codigo = produto.codigo 
+WHERE 
+	 venda.codigo = $P{CodVenda}]]>
 	</queryString>
 	<field name="venda_valorTotal" class="java.math.BigDecimal">
 		<fieldDescription><![CDATA[]]></fieldDescription>

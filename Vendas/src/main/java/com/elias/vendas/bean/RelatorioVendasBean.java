@@ -20,6 +20,7 @@ import org.primefaces.model.chart.HorizontalBarChartModel;
 
 import com.elias.vendas.dao.VendaDAO;
 import com.elias.vendas.domain.Venda;
+import com.elias.vendas.relatorio.ChamaReports;
 
 
 
@@ -114,6 +115,12 @@ public class RelatorioVendasBean implements Serializable{
 			erro.printStackTrace();
 		}
 	
+	}
+	
+	public void chamaGeralRelatorio(){
+//		ChamaReports a = new ChamaReports();
+		
+		chamaGeralRelatorio();
 	}
 	
 	

@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="r_comp_venda" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d3dbd767-fe10-4ccf-91ef-3d15b59d8779">
-	<property name="com.jaspersoft.studio.data.sql.tables">
-		<![CDATA[YmFuY28uYFByb2R1dG9gICwyMTUsMjA4LDBlOThhMzBkLTdmMDAtNDEzNC1hNmE4LTRlOWY3OTQ4
-MTBjOTtiYW5jby5gSXRlbVZlbmRhYCAsMTUsMTA4LDhkY2E1Mjc4LTBjOTQtNDg3OS1iYThhLTZk
-MTcyYWFlNjk2NjtiYW5jby5gQ2xpZW50ZWAgLDQwOCwxMzYsNTQwZDBiZmMtZDljMi00YWNiLTkz
-NjItYmE3YmUyMmIwZjU3O2JhbmNvLmBQZXNzb2FgICw1ODQsMTUsOWMyNWVjMjAtZTAyNS00ZjA1
-LWE2MzUtNjE3MmQ1YmYzODdlO2JhbmNvLmBWZW5kYWAgLDIxNSwzNixkYmUyOTE4OC02OTA5LTRm
-OTUtYTJmMy1jODdkMGY0NDUyMmE7
-]]>
-	</property>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySql"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="235"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="754"/>
 	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="562"/>
 	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="425"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Mysql"/>
+	<parameter name="codVenda" class="java.lang.Long"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT banco.`Pessoa`.nome,
 	banco.`ItemVenda`.quantidade,
@@ -34,7 +27,7 @@ FROM banco.`ItemVenda`
 	INNER JOIN banco.`Produto` ON 
 	 banco.`ItemVenda`.produto_codigo = banco.`Produto`.codigo 
 WHERE 
-	 banco.`Venda`.codigo = 2]]>
+	 banco.`Venda`.codigo = $P{codVenda}]]>
 	</queryString>
 	<field name="nome" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="nome"/>
