@@ -118,9 +118,10 @@ public class RelatorioVendasBean implements Serializable{
 	}
 	
 	public void chamaGeralRelatorio(){
-//		ChamaReports a = new ChamaReports();
+		ChamaReports a = new ChamaReports();
+		a.relatorio();
 		
-		chamaGeralRelatorio();
+//		chamaGeralRelatorio();
 	}
 	
 	
