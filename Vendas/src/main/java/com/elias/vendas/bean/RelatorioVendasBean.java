@@ -100,9 +100,6 @@ public class RelatorioVendasBean implements Serializable{
 		
 	}
 	
-	
-	
-	
 	public void listarPorData(){
 		model = new HorizontalBarChartModel();
 		try{
@@ -119,47 +116,22 @@ public class RelatorioVendasBean implements Serializable{
 	
 	}
 
-	public void chamaGeralRelatorio(){
-		
-		String test = (String)FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
-		
-		int codigo = Integer.parseInt(test);
-		
-		ChamaReports instance = new ChamaReports();
-		instance.relatorio(codigo);
+	public void relatorioVenda(){
+		try {
+			ChamaReports instance = new ChamaReports();
+			String test = (String)FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
+			
+			
+			if (test == null) {
+				instance.relatorioVenda();
+			}else {
+				int codigo = Integer.parseInt(test);
+				instance.relatorioVenda(codigo);
+			}	
+			
+		}catch (RuntimeException erro){
+			Messages.addGlobalError("Ocorreu um erro ao tentar listar os estados");
+			erro.printStackTrace();
+		}
 	}
-	
-	
-	
-	
-	
-	/**
-    public void initBarModel() {
-        ChartSeries modelVendas = new ChartSeries();
-        
-        modelVendas.setLabel("Vendas");
-        
-        for(int i = 0; i< vendas.size(); i++){
-        	modelVendas.set(vendas.get(i).getCodigo(), vendas.get(i).getValorTotal());
-        }
- 
-        model.addSeries(modelVendas);
-        
-        model.setTitle("Gráfico de vendas");
-        model.setLegendPosition("e");
-        model.setStacked(true);
-        
-        Axis xAxis = model.getAxis(AxisType.X);
-        xAxis.setLabel("Valor");
-
-         
-        Axis yAxis = model.getAxis(AxisType.Y);
-        yAxis.setLabel("Código"); 
-        
-     
-         
-    }
-	
-	*/
-	
 }

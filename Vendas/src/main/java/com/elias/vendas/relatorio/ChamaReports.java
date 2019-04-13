@@ -26,7 +26,28 @@ import net.sf.jasperreports.view.JasperViewer;
 public class ChamaReports {
 
 	@SuppressWarnings("deprecation")
-	public void relatorio(int id) {
+	public void relatorioVenda() {
+		try {
+			
+			String caminho = Faces.getRealPath("/reports/r_geral_vendas.jasper");
+			
+			Map<String, Object> parametros = new HashMap<>();
+			parametros.put("CODVENDA", 1);
+			
+			Connection conexao = HibernateUtil.getConnection();
+			
+			JasperPrint print = JasperFillManager.fillReport(caminho, parametros, conexao);
+			JasperViewer view = new JasperViewer(print, false);
+			view.show();
+		}catch(Exception e){
+			e.printStackTrace();
+			Messages.addGlobalError("Erro ao Gerar relatório");
+		}
+		
+	}
+	
+	@SuppressWarnings("deprecation")
+	public void relatorioVenda(int id) {
 		try {
 			
 			
@@ -43,9 +64,8 @@ public class ChamaReports {
 			view.show();
 
 		} catch (Exception e) {
-			Messages.addGlobalError("Erro ao Gerar relatório");
 			e.printStackTrace();
-			// TODO: handle exception
+			Messages.addGlobalError("Erro ao Gerar relatório");
 		}
 	}
 }
