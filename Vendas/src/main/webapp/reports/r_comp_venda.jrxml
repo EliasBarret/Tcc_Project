@@ -7,7 +7,7 @@
 	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="562"/>
 	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="425"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySql"/>
-	<parameter name="codVenda" class="java.lang.Long"/>
+	<parameter name="CODVENDA" class="java.lang.Integer"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT banco.`Pessoa`.nome,
 	banco.`ItemVenda`.quantidade,
@@ -27,7 +27,7 @@ FROM banco.`ItemVenda`
 	INNER JOIN banco.`Produto` ON 
 	 banco.`ItemVenda`.produto_codigo = banco.`Produto`.codigo 
 WHERE 
-	 banco.`Venda`.codigo = $P{codVenda}]]>
+	 banco.`Venda`.codigo = $P{CODVENDA}]]>
 	</queryString>
 	<field name="nome" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="nome"/>

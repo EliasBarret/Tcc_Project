@@ -36,7 +36,9 @@
 						<h:outputText value="#{cursorVenda.valorTotal}" />
 					</p:column>
 					<p:column headerText="Opcoes">
-						<p:commandButton icon="ui-local-printshop" update=":formTabela" action="#{relatorioVendasBean.chamaGeralRelatorio()}" />
+						<p:commandButton icon="ui-local-printshop" update=":formTabela" action="#{relatorioVendasBean.chamaGeralRelatorio()}"> 
+							<f:param name="id" value="#{cursorVenda.codigo}"/>
+						</p:commandButton>
 					</p:column>
 	
 				</p:dataTable>

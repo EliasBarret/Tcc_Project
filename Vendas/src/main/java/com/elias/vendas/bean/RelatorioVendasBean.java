@@ -6,11 +6,13 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
-
+import javax.faces.context.FacesContext;
 
 import org.omnifaces.util.Messages;
 import org.primefaces.model.chart.Axis;
@@ -116,12 +118,15 @@ public class RelatorioVendasBean implements Serializable{
 		}
 	
 	}
-	
+
 	public void chamaGeralRelatorio(){
-		ChamaReports a = new ChamaReports();
-		a.relatorio();
 		
-//		chamaGeralRelatorio();
+		String test = (String)FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
+		
+		int codigo = Integer.parseInt(test);
+		
+		ChamaReports instance = new ChamaReports();
+		instance.relatorio(codigo);
 	}
 	
 	

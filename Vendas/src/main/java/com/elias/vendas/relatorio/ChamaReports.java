@@ -4,8 +4,12 @@ import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.persistence.EntityManager;
+
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
+import org.hibernate.engine.spi.SessionFactoryImplementor;
+import org.hibernate.jdbc.ReturningWork;
 import org.hibernate.jdbc.Work;
 import org.omnifaces.util.Faces;
 import org.omnifaces.util.Messages;
@@ -21,35 +25,27 @@ import net.sf.jasperreports.view.JasperViewer;
 
 public class ChamaReports {
 
-	public void relatorio() {
-		
-		Session sessao  = HibernateUtil.getFabricaDeSessoes().openSession();
-		
-		
+	@SuppressWarnings("deprecation")
+	public void relatorio(int id) {
+		try {
 			
-			sessao.doWork(new Work(){
-				public void execute(Connection conexao) {
-				
-				try {
-					String caminho = Faces.getRealPath("/relatorio/r_comp_venda.jasper");
-					Map<String, Object> parametros = new HashMap<String, Object>();
-					
-					parametros.put("codVenda", 2);
-					
-					//Connection conexao = HibernateUtil.getConexao();
-					//Connection conexao = HibernateUtil.getFabricaDeSessoes();
-					
-					JasperPrint print = JasperFillManager.fillReport(caminho, parametros, conexao);
-					//JasperPrintManager.printReport(print, true);
-					//JasperViewer.viewReport(print, false);
-					//JasperExportManager.exportReportToPdfFile(print,“relatorio/RelatorioUser.pdf”);
-					JasperExportManager.exportReportToPdfFile(print,"/relatorio/Relatorio.pdf");
-				}catch (Exception e) {
-					Messages.addGlobalError("Erro ao Gerar relatório");
-					e.printStackTrace();
-					// TODO: handle exception
-				}
-			}
-		});
-		
-}}
+			
+		     //Users/elias/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/Vendas/reports/r_comp_venda.jasper
+			String caminho = Faces.getRealPath("/reports/r_comp_venda.jasper");
+			
+			Map<String, Object> parametros = new HashMap<>();
+			parametros.put("CODVENDA", id);
+			
+			Connection conexao = HibernateUtil.getConnection();
+
+			JasperPrint print = JasperFillManager.fillReport(caminho, parametros, conexao);
+			JasperViewer view = new JasperViewer(print, false);
+			view.show();
+
+		} catch (Exception e) {
+			Messages.addGlobalError("Erro ao Gerar relatório");
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+	}
+}
