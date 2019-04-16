@@ -16,8 +16,9 @@
 				<p:dataTable emptyMessage="Nenhum registro encontrado"
 					rows="15" paginator="true" value="#{relatorioDeTiposDeVendasBean.listaDeVendasPorTipo}" var="cursorVenda">
 					
-						<f:facet name="header">					
-				
+						<f:facet name="header">	
+							<p:commandButton update=":formTabela" value="Relatorio Geral" action="#{relatorioDeTiposDeVendasBean.relatorioTipoVenda()}"/>
+							<br/><br/>			
 							<p:selectOneMenu  value="#{relatorioDeTiposDeVendasBean.tipo}" >
 								<f:selectItem itemLabel="Todos" itemValue="Todos" />
 								<f:selectItem itemLabel="Dinnheiro" itemValue="Dinheiro" />
@@ -31,11 +32,11 @@
 								<f:selectItem itemLabel="Troca + Cartão de Crédito" itemValue="Troca + Cartão de Crédito"/>
 							</p:selectOneMenu>
 
-							<p:outputLabel value="Data Inicio:" />
+							<p:outputLabel value=" Data Inicio: " />
 							<p:calendar pattern="dd/MM/yyyy HH:mm:ss" value="#{relatorioDeTiposDeVendasBean.dataInicio}"/>
-							<p:outputLabel value="Data Fim:" />
+							<p:outputLabel value=" Data Fim: " />
 							<p:calendar pattern="dd/MM/yyyy HH:mm:ss" value="#{relatorioDeTiposDeVendasBean.dataFim}"/>
-							<p:commandButton value="pesquisar" actionListener="#{relatorioDeTiposDeVendasBean.listarPorDataETipo()}" update=":formTabela" />
+							<p:commandButton value="pesquisar " actionListener="#{relatorioDeTiposDeVendasBean.listarPorDataETipo()}" update=":formTabela" />
 						</f:facet>
 					
 					
@@ -55,7 +56,7 @@
 					
 					<f:facet name="footer">
 						<p:outputLabel value="Valor Total: " />
-						<h:inputText disabled="true" size="8" value="#{relatorioDeTiposDeVendasBean.valorTotal}" />
+						<h:inputText disabled="true" size="8" value="#{relatorioDeTiposDeVendasBean.valorTotal}" /><br/><br/>
 					</f:facet>
 	
 				</p:dataTable>

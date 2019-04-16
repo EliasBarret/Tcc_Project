@@ -12,7 +12,7 @@
 	<ui:define name="pagina">
 	
 	<h:form id="formTabela">
-		<p:panel header="Cidades listagem">
+		<p:panel header="Cidades">
 			<p:dataTable emptyMessage="Nenhum registro encontrado"
 				paginator="true" value="#{cidadeBean.cidades}" var="cursorCidade">
 				<f:facet name="header">
@@ -23,7 +23,7 @@
 				</f:facet>
 
 				<p:column headerText="Nome">
-					<h:outputText value="#{cursorCidade.nome}" />
+					<h:outputText style="text-transform:uppercase" value="#{cursorCidade.nome}" />
 				</p:column>
 				<p:column headerText="Estado">
 					<h:outputText value="#{cursorCidade.estado.nome}" />

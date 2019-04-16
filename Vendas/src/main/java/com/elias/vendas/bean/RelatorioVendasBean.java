@@ -24,12 +24,6 @@ import com.elias.vendas.dao.VendaDAO;
 import com.elias.vendas.domain.Venda;
 import com.elias.vendas.relatorio.ChamaReports;
 
-
-
-
-
-
-
 @SuppressWarnings("serial")
 @ManagedBean
 @ViewScoped
@@ -81,7 +75,6 @@ public class RelatorioVendasBean implements Serializable{
 		this.vendas = vendas;
 	}
 
-
 	//preenche uma lista com registro de estados
 	@PostConstruct // essa anotation diz que o metodo tem que disparar no momento em que a tela é criada 
 	public void listar(){
@@ -96,8 +89,6 @@ public class RelatorioVendasBean implements Serializable{
 			Messages.addGlobalError("Ocorreu um erro ao tentar listar as vendas");
 			erro.printStackTrace();
 		}
-		
-		
 	}
 	
 	public void listarPorData(){
@@ -121,7 +112,6 @@ public class RelatorioVendasBean implements Serializable{
 			ChamaReports instance = new ChamaReports();
 			String test = (String)FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
 			
-			
 			if (test == null) {
 				instance.relatorioVenda();
 			}else {
@@ -130,7 +120,7 @@ public class RelatorioVendasBean implements Serializable{
 			}	
 			
 		}catch (RuntimeException erro){
-			Messages.addGlobalError("Ocorreu um erro ao tentar listar os estados");
+			Messages.addGlobalError("Ocorreu um erro ao gerar relatório");
 			erro.printStackTrace();
 		}
 	}

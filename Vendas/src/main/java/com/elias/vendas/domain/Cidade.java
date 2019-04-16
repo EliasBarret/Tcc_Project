@@ -18,8 +18,6 @@ public class Cidade extends GenericDomain{
 	@JoinColumn(nullable = false)// serve para personalizar colunas que tem chave estrangeira, está impedindo que a chave estrangeira seja nula, ou seja, está impedindo de a cidade ficar sem chave estrangeira 
 	private Estado estado;
 	
-
-	
 	public String getNome() {
 		return nome;
 	}
@@ -27,8 +25,6 @@ public class Cidade extends GenericDomain{
 		this.nome = nome;
 	}
 
-	
-	
 	public Estado getEstado() {
 		return estado;
 	}

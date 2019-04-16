@@ -7,15 +7,15 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>SiGE</title>
+	<title>SCGV</title>
 	<h:outputStylesheet library="css" name="estilo.css" />
-	
+
 	<!-- <link type="text/css" rel="stylesheet" href="../jquery/css/jquery-ui.css"/>
  	<link type="text/css" rel="stylesheet" href="../jquery/css/jquery-ui.min.css"/>
  	<link type="text/css" rel="stylesheet" href="../jquery/css/jquery-ui.structure.css"/>
  	<link type="text/css" rel="stylesheet" href="../jquery/css/jquery-ui.theme.css"/>
  	<link type="text/css" rel="stylesheet" href="../jquery/css/jquery-ui.theme.min.css"/> -->
- 	
+
 </h:head>
 <h:body>
 	<p:growl id="mensagem" />
@@ -24,36 +24,50 @@
 		<div id="topo" class="divTopo">
 			<h:form id="formMenu">
 				<p:dock position="top">
-					<p:menuitem value="Inicio" url="inicio.xhtml" icon="../resources/images/home.png"/>
-				    <p:menuitem value="Gente e Gestão" url="menuGG.xhtml" icon="../resources/images/pessoas.png" />
-					
-					<p:menuitem value="Produtos" url="produtos.xhtml" icon="../resources/images/produtos.png" />
-					<p:menuitem value="Fabricantes" url="fabricantes.xhtml" icon="../resources/images/fabricantes.png" />
-					<p:menuitem value="Locais" url="menuLocais.xhtml" icon="../resources/images/locais.png" />
-					
-					<p:menuitem value="Financeiro" url="financeiro.xhtml" icon="../resources/images/financeiro.png" />	
-					<p:menuitem value="Crediario" url="crediario.xhtml" icon="../resources/images/crediario.png" />
-										
-					<p:menuitem value="Vendas" url="vendas.xhtml" icon="../resources/images/vendas.png" />
-					<p:menuitem value="Cancelamento de Vendas" url="cancelarVenda.xhtml" icon="../resources/images/cancelar.png" />	
-					<p:menuitem value="Troca de Produtos" url="troca.xhtml" icon="../resources/images/troca.png" />	
-					
-					<p:menuitem value="Relatórios" url="menuRelatorio.xhtml" icon="../resources/images/relatorio.png" />
-					
-					<p:menuitem   actionListener="#{autenticacaoBean.sair()}"  value="Sair" icon="../resources/images/sair.png" />
+					<p:menuitem value="Inicio" url="inicio.xhtml"
+						icon="../resources/images/home.png" />
+					<p:menuitem value="Gente e Gestão" url="menuGG.xhtml"
+						icon="../resources/images/pessoas.png" />
+
+					<p:menuitem value="Produtos" url="produtos.xhtml"
+						icon="../resources/images/produtos.png" />
+					<p:menuitem value="Fabricantes" url="fabricantes.xhtml"
+						icon="../resources/images/fabricantes.png" />
+					<p:menuitem value="Locais" url="menuLocais.xhtml"
+						icon="../resources/images/locais.png" />
+
+					<p:menuitem value="Financeiro" url="financeiro.xhtml"
+						icon="../resources/images/financeiro.png" />
+					<p:menuitem value="Crediario" url="crediario.xhtml"
+						icon="../resources/images/crediario.png" />
+
+					<p:menuitem value="Vendas" url="vendas.xhtml"
+						icon="../resources/images/vendas.png" />
+					<p:menuitem value="Cancelamento de Vendas"
+						url="cancelarVenda.xhtml" icon="../resources/images/cancelar.png" />
+					<p:menuitem value="Troca de Produtos" url="troca.xhtml"
+						icon="../resources/images/troca.png" />
+
+					<p:menuitem value="Relatórios" url="menuRelatorio.xhtml"
+						icon="../resources/images/relatorio.png" />
+
+					<p:menuitem actionListener="#{autenticacaoBean.sair()}"
+						value="Sair" icon="../resources/images/sair.png" />
 				</p:dock>
 			</h:form>
 		</div>
 
 		<div id="conteudo">
-				<!-- <p:menuitem value="Relatório de vendas" url="relatorioVendas.xhtml" icon="../resources/images/relatorioVendas.png" />
+			<!-- <p:menuitem value="Relatório de vendas" url="relatorioVendas.xhtml" icon="../resources/images/relatorioVendas.png" />
 				<p:menuitem value="Relatório de itens vendidos" url="relatorioItensVendidos.xhtml" icon="../resources/images/relatorioItensVendidos.png" />			
 				<p:menuitem value="Relatório de Vendas Completo" url="relatorioDeTiposDeVendas.xhtml" icon="../resources/images/tipoDeVendas.png" />
 				<p:menuitem value="Relatório de Recebimentos" url="relatorioDeRecebimentos.xhtml" icon="../resources/images/recebimento.png" />
 				<p:menuitem value="Relatório de crediário" url="relatorioCrediario.xhtml" icon="../resources/images/relatorioCrediario.png" /> -->
 			<ui:insert name="pagina" />
 		</div>
-		<footer style=" width: 100%; text-align: center; position: absolute; bottom: 0;">Projeto TCC 2019. Elias Barreto.</footer>
+		<footer
+			style=" width: 100%; text-align: center; position: absolute; bottom: 0;">Projeto
+		TCC 2019. Elias Barreto.</footer>
 	</div>
 </h:body>
 </html>

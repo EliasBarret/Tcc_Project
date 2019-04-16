@@ -12,7 +12,7 @@
 	<ui:define name="pagina">
 	
 	<h:form id="formTabela">
-		<p:panel header="Fabricantes listagem">
+		<p:panel header="Fabricantes">
 			<p:dataTable emptyMessage="Nenhum registro encontrado"
 				rows="15" paginator="true" value="#{fabricanteBean.fabricantes}" var="cursorFabricante">
 				<f:facet name="header">
@@ -23,7 +23,7 @@
 				</f:facet>
 
 				<p:column headerText="Fabricantes" filterBy="#{cursorFabricante.descricao}">
-					<h:outputText value="#{cursorFabricante.descricao}" />
+					<h:outputText style="text-transform:uppercase" value="#{cursorFabricante.descricao}" />
 				</p:column>
 			</p:dataTable>
 			

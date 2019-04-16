@@ -33,7 +33,7 @@
 				</p:column>
 
 				<p:column headerText="Descrição" filterBy="#{cursorProduto.descricao}">
-					<h:outputText value="#{cursorProduto.descricao}" />
+					<h:outputText style="text-transform:uppercase" value="#{cursorProduto.descricao}" />
 				</p:column>
 
 				<p:column headerText="Preço">
@@ -47,7 +47,7 @@
 				</p:column>
 
 				<p:column headerText="Fabricante">
-					<h:outputText value="#{cursorProduto.fabricante.descricao}" />
+					<h:outputText style="text-transform:uppercase" value="#{cursorProduto.fabricante.descricao}" />
 				</p:column>
 				<p:column headerText="Opções">
 				<!-- botão só despara se  dialogo for confirmado positivamente-->

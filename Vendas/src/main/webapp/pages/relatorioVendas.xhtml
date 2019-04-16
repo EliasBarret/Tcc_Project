@@ -8,11 +8,13 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	template="principal.xhtml">
+	
+
 
 	<ui:define name="pagina">
 	
 		<h:form id="formTabela">
-			<p:panel header="Relatório de vendas">
+			<p:panel header="Relatório de Vendas">
 				<p:dataTable emptyMessage="Nenhum registro encontrado"
 					rows="15" paginator="true" value="#{relatorioVendasBean.vendas}" var="cursorVenda">
 						
@@ -35,7 +37,7 @@
 						<h:outputText value="#{cursorVenda.valorTotal}" />
 					</p:column>
 					<p:column headerText="Opcoes">
-						<p:commandButton icon="ui-local-printshop" update=":formTabela" action="#{relatorioVendasBean.relatorioVenda()}"> 
+						<p:commandButton icon="fa-adjust" update=":formTabela" action="#{relatorioVendasBean.relatorioVenda()}">
 							<f:param name="id" value="#{cursorVenda.codigo}"/>
 						</p:commandButton>
 					</p:column>

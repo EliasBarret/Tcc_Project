@@ -12,7 +12,7 @@
 	<ui:define name="pagina">
 	
 	<h:form id="formTabela">
-		<p:panel header="Estados Listagem">
+		<p:panel header="Estados">
 
 			<!--  Criação de tabela com prime faces  -->
 			<p:dataTable emptyMessage="Nenhum registro encontrado"
@@ -57,11 +57,11 @@
 		<h:form id="formCadastro">
 			<h:panelGrid columns="2">
 				<p:outputLabel value="Nome: " />
-				<p:inputText value="#{estadoBean.estado.nome}" maxlength="50"
+				<p:inputText style="text-transform:uppercase" value="#{estadoBean.estado.nome}" maxlength="50"
 					size="30" />
 
 				<p:outputLabel value="Sigla: " />
-				<p:inputText value="#{estadoBean.estado.sigla}" maxlength="2"
+				<p:inputText style="text-transform:uppercase" value="#{estadoBean.estado.sigla}" maxlength="2"
 					size="2" />
 			</h:panelGrid>
 

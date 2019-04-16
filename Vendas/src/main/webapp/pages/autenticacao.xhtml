@@ -29,10 +29,12 @@
 					value="#{autenticacaoBean.usuario.senha}" />
 			</h:panelGrid>
 			
+			<p:panel>
 				<h:panelGrid columns="1">
 					<p:commandButton value="Entrar" update=":mensagem"
 						actionListener="#{autenticacaoBean.autenticar}"/>
 				</h:panelGrid>
+			</p:panel>
 	
 		</h:form>
 	</p:dialog>
