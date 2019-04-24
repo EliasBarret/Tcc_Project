@@ -9,17 +9,19 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets" template="principal.xhtml">
 
 	<ui:define name="pagina">
-
 		<h:form id="formTabela">
-			<p:inputText value="#{crediarioBean.codigo}" name="codigo"
-				style="width:86%;" />
-			<p:commandButton update=":mensagem :formTabela"
-				actionListener="#{crediarioBean.procurarParcelas()}"
-				icon="ui-icon-circle-plus">
-			</p:commandButton>
-
 			<p:panel header="Crediário">
-
+				<p:panel style="text-align:-webkit-center;">
+					<h:panelGrid columns="3" >
+						<p:outputLabel value="Código da Venda: "/>
+						<p:inputText value="#{crediarioBean.codigo}" name="codigo"
+							style="width:86%;" />
+						<p:commandButton update=":mensagem :formTabela"
+							actionListener="#{crediarioBean.procurarParcelas()}"
+							icon="ui-icon-circle-plus">
+						</p:commandButton>
+					</h:panelGrid>
+				</p:panel>
 				<!--  Criação de tabela com prime faces  -->
 				<p:dataTable id="checkboxDT" scrollable="true" scrollHeight="300"
 					emptyMessage="Nenhum registro encontrado"

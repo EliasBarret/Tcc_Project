@@ -4,10 +4,10 @@
 	<property name="com.jaspersoft.studio.data.sql.tables">
 		<![CDATA[YmFuY28uYFRpcG9EZVZlbmRhYCBBUyAsMjc1LDExNixkZDQ0NTRjYy02ZmI4LTRhMzMtODAxYi00
 NTYyYWYyNDAwN2M7YmFuY28uYFZlbmRhYCBBUyAsMTUsMTUsMDRmNzYwNzYtNzA0My00ZGVhLWE4
-M2EtMTNlMDU5ZThiZTY5Ow==
-]]>
+M2EtMTNlMDU5ZThiZTY5Ow==]]>
 	</property>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySql"/>
+	<parameter name="LOGO" class="java.io.InputStream"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT banco.`Venda`.codigo,
 	banco.`Venda`.horario,
@@ -41,9 +41,9 @@ FROM banco.`TipoDeVenda`
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="43" splitType="Stretch">
+		<band height="59" splitType="Stretch">
 			<staticText>
-				<reportElement positionType="Float" x="9" y="0" width="540" height="42" uuid="c8c1f31e-75de-4a61-9a5c-69e2a5fb9dad"/>
+				<reportElement positionType="Float" x="10" y="0" width="539" height="58" uuid="c8c1f31e-75de-4a61-9a5c-69e2a5fb9dad"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -105,7 +105,7 @@ FROM banco.`TipoDeVenda`
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="38" splitType="Stretch">
+		<band height="36" splitType="Stretch">
 			<textField>
 				<reportElement x="9" y="0" width="121" height="36" uuid="67e55260-a108-4a6e-b19f-190302bcfa63"/>
 				<box>
@@ -153,28 +153,42 @@ FROM banco.`TipoDeVenda`
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="43" splitType="Stretch">
+		<band height="53" splitType="Stretch">
 			<textField>
-				<reportElement x="10" y="0" width="70" height="26" uuid="9aa8bae0-a900-4e4d-9c9a-55489781d210"/>
-				<textElement textAlignment="Right"/>
+				<reportElement x="10" y="10" width="70" height="30" uuid="9aa8bae0-a900-4e4d-9c9a-55489781d210"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField pattern="¤#,##0.00;¤-#,##0.00">
-				<reportElement x="390" y="0" width="159" height="30" uuid="a7dbe4b0-61ef-4f5b-9f13-a700a904c63e"/>
+				<reportElement x="450" y="10" width="99" height="30" uuid="a7dbe4b0-61ef-4f5b-9f13-a700a904c63e"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$V{VLTOTAL}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="270" y="0" width="120" height="30" uuid="5bdfc2e4-392b-4d6f-b510-9edc9c0c0e6b"/>
+				<reportElement x="380" y="10" width="70" height="30" uuid="5bdfc2e4-392b-4d6f-b510-9edc9c0c0e6b"/>
 				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
 				<text><![CDATA[Total:]]></text>
 			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="80" y="10" width="300" height="30" uuid="83b746e0-b4ad-4a78-8b2f-c1956ab363ef"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageFooter>
 </jasperReport>

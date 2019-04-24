@@ -8,6 +8,7 @@
 	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="425"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySql"/>
 	<parameter name="CODVENDA" class="java.lang.Integer"/>
+	<parameter name="LOGO" class="java.awt.Image"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT banco.`Pessoa`.nome,
 	banco.`ItemVenda`.quantidade,

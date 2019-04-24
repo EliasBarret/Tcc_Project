@@ -6,6 +6,7 @@
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="787"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySql"/>
 	<parameter name="TIPOVENDA" class="java.lang.String"/>
+	<parameter name="LOGO" class="java.awt.Image"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT banco.`TipoDeVenda`.venda_codigo,
 	banco.`Venda`.`valorTotal`,
@@ -16,7 +17,7 @@ FROM banco.`TipoDeVenda`
 	 banco.`TipoDeVenda`.venda_codigo = banco.`Venda`.codigo 
 	 AND banco.`TipoDeVenda`.venda_codigo = banco.`Venda`.codigo
 WHERE 
-	banco.`TipoDeVenda`.tipo =  $P{TIPOVENDA} ]]>
+	banco.`TipoDeVenda`.tipo =  $P{TIPOVENDA}]]>
 	</queryString>
 	<field name="venda_codigo" class="java.lang.Long">
 		<property name="com.jaspersoft.studio.field.label" value="venda_codigo"/>
@@ -42,9 +43,9 @@ WHERE
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="42" splitType="Stretch">
+		<band height="60" splitType="Stretch">
 			<staticText>
-				<reportElement x="2" y="0" width="550" height="40" uuid="680b79d1-8432-4772-b796-b2efc18337ab"/>
+				<reportElement x="2" y="0" width="550" height="60" uuid="680b79d1-8432-4772-b796-b2efc18337ab"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -150,26 +151,39 @@ WHERE
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="21" splitType="Stretch">
+		<band height="29" splitType="Stretch">
 			<staticText>
-				<reportElement x="380" y="0" width="100" height="20" uuid="65bd7663-2f4d-44ad-9c2e-19292d427ba0"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Total]]></text>
+				<reportElement x="380" y="3" width="100" height="26" uuid="65bd7663-2f4d-44ad-9c2e-19292d427ba0"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Total:]]></text>
 			</staticText>
 			<textField pattern="¤#,##0.00;¤-#,##0.00">
-				<reportElement x="480" y="0" width="72" height="20" uuid="13e7e033-e115-40d1-b4f7-563cf2b727d6"/>
+				<reportElement x="480" y="3" width="72" height="26" uuid="13e7e033-e115-40d1-b4f7-563cf2b727d6"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$V{VlTotal}]]></textFieldExpression>
 			</textField>
-		</band>
-	</columnFooter>
-	<pageFooter>
-		<band height="30" splitType="Stretch">
 			<textField>
-				<reportElement x="2" y="0" width="100" height="30" uuid="c66bc3ab-bc1e-4c6a-b765-ea590edfa873"/>
-				<textElement textAlignment="Right"/>
+				<reportElement x="2" y="3" width="98" height="26" uuid="c66bc3ab-bc1e-4c6a-b765-ea590edfa873"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="100" y="3" width="280" height="26" uuid="f426a36a-04db-410b-8eff-e3dea1fdcc9f"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
 		</band>
-	</pageFooter>
+	</columnFooter>
 </jasperReport>

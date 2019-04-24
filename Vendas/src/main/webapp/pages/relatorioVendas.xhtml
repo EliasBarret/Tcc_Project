@@ -37,13 +37,12 @@
 						<h:outputText value="#{cursorVenda.valorTotal}" />
 					</p:column>
 					<p:column headerText="Opcoes">
-						<p:commandButton icon="fa-adjust" update=":formTabela" action="#{relatorioVendasBean.relatorioVenda()}">
+						<p:commandButton  icon="fa fa-fw fa-print" update=":formTabela" action="#{relatorioVendasBean.relatorioVenda()}">
 							<f:param name="id" value="#{cursorVenda.codigo}"/>
 						</p:commandButton>
 					</p:column>
 	
-				</p:dataTable>
-				
+				</p:dataTable>			
 			</p:panel>
 		</h:form>
 		
