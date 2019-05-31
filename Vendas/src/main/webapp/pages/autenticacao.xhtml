@@ -12,27 +12,35 @@
 	<h:outputStylesheet library="css" name="menuStyle.css" />
 </h:head>
 <h:body>
+
+
 	<p:growl id="mensagem" />
 
-	<p:dialog header="BEMVINDO AO SCGV" closable="false" draggable="false"
-		resizable="false" modal="true" visible="true" >
+	
+	
+	
+	 <p:dialog closable="false" draggable="false"
+		resizable="false" modal="true" visible="true">
+	
+	<p:graphicImage style="text-align:center; display: block; width: 390px; padding: 5px; height:125px; padding-bottom:30px" library="images" name="EliasOmisso.png"/>
+		
 		<h:form>
-			<h:panelGrid columns="2">
-				<p:outputLabel for="cpf" value="CPF:" />
-				<p:inputMask id="cpf" mask="999.999.999-99" size="20"
+			<h:panelGrid columns="4">
+				<p:outputLabel for="cpf" value="CPF:"/>
+				<p:inputMask id="cpf" mask="999.999.999-99" size="16"
 					required="true" requiredMessage="O campo CPF é obrigatório"
 					value="#{autenticacaoBean.usuario.pessoa.cpf}" />
 
 				<p:outputLabel for="senha" value="Senha:" />
-				<p:password id="senha" maxlength="8" size="20" required="true"
+				<p:password id="senha" maxlength="8" size="17" required="true"
 					requiredMessage="O campo Senha é obrigatório"
 					value="#{autenticacaoBean.usuario.senha}" />
 			</h:panelGrid>
 			
-			<p:panel>
-				<h:panelGrid columns="1">
+			<p:panel style="text-align: -webkit-center;">
+				<h:panelGrid columns="1" >
 					<p:commandButton value="Entrar" update=":mensagem"
-						actionListener="#{autenticacaoBean.autenticar}"/>
+						actionListener="#{autenticacaoBean.autenticar}" style="width: 150px;"/>
 				</h:panelGrid>
 			</p:panel>
 	

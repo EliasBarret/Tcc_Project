@@ -14,6 +14,7 @@
 
 	</h:head>
 
+	<ui:include src="clientes.xhtml"/>
 	<ui:define name="pagina">
 	
 	<h:form id="formTabela">
@@ -22,49 +23,54 @@
 			<p:dataTable  scrollable="true" scrollWidth="98,5%" semptyMessage="Nenhum registro encontrado"
 				rows="15" paginator="true" value="#{pessoaBean.pessoas}" var="cursorPessoa" >
 				<f:facet name="header">
+					<p:panel>
 					<p:commandButton value="Novo"
 						oncomplete="PF('dialogoPessoa').show();"
 						actionListener="#{pessoaBean.novo()}"
 						update=":formCadastro"/>
+						<p:commandButton value="Usuário" icon="" />
+						<p:commandButton value="Funcionário" icon=""/>
+						<p:commandButton value="Cliente" icon="" action="dialogoCliente.show()"/>	
+					</p:panel>	
 				</f:facet>
 				
-				<p:column style="width:220px" headerText="Nome" filterBy="#{cursorPessoa.nome}">
+				<p:column style="width:200px" headerText="Nome" filterBy="#{cursorPessoa.nome}">
 					<h:outputText value="#{cursorPessoa.nome}" />
 				</p:column>
 
-				<p:column style="width:100px" headerText="CPF">
+				<p:column style="width:80px;text-align:center" headerText="CPF">
 					<h:outputText value="#{cursorPessoa.cpf}" />
 				</p:column>
 
-				<p:column style="width:60px" headerText="RG">
+				<p:column style="width:40px;text-align:center" headerText="RG">
 					<h:outputText value="#{cursorPessoa.rg}" />
 				</p:column>
 
-				<p:column style="width:100px" headerText="Rua">
+				<p:column style="width:100px;text-align:center" headerText="Rua">
 					<h:outputText value="#{cursorPessoa.rua}" />
 				</p:column>
 
-				<p:column style="width:16px" headerText="Nº">
+				<p:column style="width:16px;text-align:center;" headerText="Nº">
 					<h:outputText value="#{cursorPessoa.numero}" />
 				</p:column>
 
-				<p:column style="width:80px" headerText="Bairro">
+				<p:column style="width:80px;text-align:center" headerText="Bairro">
 					<h:outputText value="#{cursorPessoa.bairro}" />
 				</p:column>
 				
-				<p:column style="width:60px" headerText="Cep">
+				<p:column style="width:50px;text-align:center" headerText="Cep">
 					<h:outputText value="#{cursorPessoa.cep}" />
 				</p:column>
 				
-				<p:column style="width:80px" headerText="Complemento">
+				<p:column style="width:50px;text-align:center" headerText="Complemento">
 					<h:outputText value="#{cursorPessoa.complemento}" />
 				</p:column>
 				
-				<p:column style="width:60px" headerText="Telefone">
+				<!-- <p:column style="width:60px" headerText="Telefone">
 					<h:outputText value="#{cursorPessoa.telefone}" />
-				</p:column>
+				</p:column>-->
 				
-				<p:column style="width:85px" headerText="Celular">
+				<p:column style="width:70px;text-align:center" headerText="Celular">
 					<h:outputText value="#{cursorPessoa.celular}" />
 				</p:column>
 				
@@ -72,20 +78,21 @@
 					<h:outputText value="#{cursorPessoa.email}" />
 				</p:column>
 				
-				<p:column style="width:60px" headerText="Cidade">
+				<p:column style="width:60px;text-align:center" headerText="Cidade">
 					<h:outputText value="#{cursorPessoa.cidade.nome}" />
 				</p:column>
 				
-				<p:column style="width:55px" headerText="Opções">
-				<!-- botão só despara se  dialogo for confirmado positivamente-->
+				<p:column style="width:100px;text-align:center" headerText="Opções">
+    							
+    				<!-- Chama o Form de Edição passando a pessoa selecionada -->
+    				<p:commandButton actionListener="#{pessoaBean.adicionaPessoaParaEdicao}" icon="fa fa-fw fa-edit" oncomplete="PF('dialogoEditar').show();"  update=":mensagem :formTabela :formEditar">	
+    					<f:attribute name="pessoaSelecionada02"  value="#{cursorPessoa}" />
+    				</p:commandButton>
+    				
+					<!-- botão só despara se  dialogo for confirmado positivamente-->
 					<p:commandButton icon="ui-icon-trash" actionListener="#{pessoaBean.excluir}"  update=":mensagem :formTabela">	
 						<p:confirm header="Confirmação" message="Deseja apagar a pessoa?" icon="ui-icon-alert" />
     					<f:attribute name="pessoaSelecionada" value="#{cursorPessoa}"/>
-    				</p:commandButton>
-    				
-    				<!-- Chama o Form de Edição passando a pessoa selecionada -->
-    				<p:commandButton actionListener="#{pessoaBean.adicionaPessoaParaEdicao}" icon="ui-icon-wrench" oncomplete="PF('dialogoEditar').show();"  update=":mensagem :formTabela :formEditar">	
-    					<f:attribute name="pessoaSelecionada02"  value="#{cursorPessoa}" />
     				</p:commandButton>
     				
 				</p:column>
@@ -99,7 +106,7 @@
 			
 		</p:panel>
 	</h:form>
-
+	
 	<!--  janela de dialogo com prime faces  -->
 	<p:dialog widgetVar="dialogoPessoa" header="Cadastro de Pessoa"
 		closable="false" modal="true" resizable="false">

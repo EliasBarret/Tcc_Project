@@ -31,6 +31,7 @@ import com.elias.vendas.domain.Produto;
 import com.elias.vendas.domain.TipoDeVenda;
 import com.elias.vendas.domain.Usuario;
 import com.elias.vendas.domain.Venda;
+import com.elias.vendas.relatorio.ChamaReports;
 import com.elias.vendas.util.ImprimirDados;
 
 
@@ -307,11 +308,6 @@ public class VendaBean implements Serializable{
 		Messages.addGlobalError(item.getProduto().getDescricao()+" com preço cancelado!");
 	}
 	
-	
-	
-	
-	
-	
 	public void valorTotal(){
 		valorTotal = new BigDecimal(0);	
 		for(int i = 0; i < itens.size(); i++){
@@ -320,7 +316,6 @@ public class VendaBean implements Serializable{
 		}
 
 	}
-
 	
 	public void calcularTroco(){
 		try{
@@ -345,16 +340,6 @@ public class VendaBean implements Serializable{
 			}
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	public void salvarVendaDinheiro(){
 		String dados ="";
@@ -430,7 +415,13 @@ public class VendaBean implements Serializable{
 	
 				try{
 					ImprimirDados imprimir = new ImprimirDados();
+					ChamaReports report = new ChamaReports();
+
+					Long id = venda.getCodigo();
+					int test = Math.toIntExact(id);
+										
 					imprimir.imprime(dados);
+					report.relatorioVenda(test);
 				}catch (Exception e) {
 					// TODO: handle exception
 				}
@@ -581,9 +572,6 @@ public class VendaBean implements Serializable{
 			Messages.addGlobalError("valor total não deve estar zerado e para crediario deve ser informado o cliente");
 		}
 	}
-	
-	
-	
 	
 	// salva venda no cartão de Debito
 	public void salvarVendaCD(){

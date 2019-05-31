@@ -103,6 +103,7 @@ public class PessoaBean implements Serializable{
 				erro.printStackTrace();
 			}
 	}
+ 
 	
 	public void adicionaPessoaParaEdicao(ActionEvent evento){
 		try{
@@ -134,13 +135,6 @@ public class PessoaBean implements Serializable{
 	
 	
 	public void salvar(){
-		//criando mensagem no braço com jsf
-		/*
-		String texto = "programação web com java!";
-		FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_INFO, texto, texto);
-		FacesContext contexto =  FacesContext.getCurrentInstance();
-		contexto.addMessage(null, mensagem);
-		*/
 
 		try{
 			PessoaDAO pessoaDAO = new PessoaDAO();

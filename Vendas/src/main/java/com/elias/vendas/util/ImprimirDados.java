@@ -48,12 +48,9 @@ public class ImprimirDados {
 	            e.printStackTrace();
 	        }
 	    }
-	    
-	    
-	    
+	    	    
 	    public synchronized boolean imprime(String texto)  {
 
-	                
 	                try {  
 	                    FileOutputStream os = new FileOutputStream("PDF995PORT");  
 	                    PrintStream ps = new PrintStream(os);  

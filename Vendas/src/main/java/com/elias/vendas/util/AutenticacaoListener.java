@@ -35,8 +35,6 @@ public class AutenticacaoListener implements PhaseListener {
 				return;
 			}
 			
-
-			
 			if(paginaAtual.contains("usuarios.xhtml") || paginaAtual.contains("funcionarios.xhtml") ){
 				if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G'){	
 				}else{
