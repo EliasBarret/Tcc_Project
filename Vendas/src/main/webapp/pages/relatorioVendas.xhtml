@@ -45,10 +45,19 @@
 				</p:dataTable>			
 			</p:panel>
 		</h:form>
+	
+	<h:form id="idGraficoForm">
+		<!-- <p:commandButton value="Graficar !" actionListener="#{relatorioVendasBean.listarGrafico()}" update=":formTabela :idGraficoForm"/>
 		
-		<!--
-	<p:chart id="grafico" type="bar" model="#{relatorioVendasBean.model}" />
-		-->
+		<h:panelGroup id="painelG" layout="block">
+			<p:chart id="grafico" type="pie" style="width:400px; height:300px" model="#{relatorioVendasBean.pieModel}" rendered="#{relatorioVendasBean.pieModel != null}"/>
+		</h:panelGroup>
+		
+		<h:panelGroup id="panelG2" layout="block">
+			<p:chart type="bar" id="grafico1" style="width:1000px; height:500px" model="#{relatorioVendasBean.barra}" rendered="#{relatorioVendasBean.barra != null}"/> 
+		</h:panelGroup> -->
+	</h:form>	
+	
 	
 	</ui:define>
 </ui:composition>

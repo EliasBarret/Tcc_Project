@@ -17,7 +17,8 @@
         <property name="connection.pool_size">5</property>
 
         <!-- SQL dialect -->
-        <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <!-- <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property> -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <!-- gerenciamento do contexto das sessões -->
         <property name="current_session_context_class">thread</property>
@@ -30,6 +31,9 @@
 
         <!-- cria tabelas do banco de dados-->
         <property name="hbm2ddl.auto">update</property>
+        
+      <!--   <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/> -->
+        
         
         <mapping class="com.elias.vendas.domain.Recebimento"/>
 		<mapping class="com.elias.vendas.domain.Dinheiro"/>

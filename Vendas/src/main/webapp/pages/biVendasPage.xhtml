@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+
+	<h:head>
+			<title>BI - VENDAS</title>
+			
+			<h:outputStylesheet library="css" name="menuStyle.css" />
+	</h:head>
+	
+	
+	<body style="background-color: gainsboro; font-family: sans-serif;">
+	<div>
+		<p:panel>
+			<h:form id="idGraficoForm">
+				<p:commandButton value="Graficar !" actionListener="#{relatorioVendasBean.listarGrafico()}" update=":idGraficoForm"/>
+				<p:commandButton value="Ranking test !" actionListener="#{vendaBean.rankingVendaProduto()}" update=":idGraficoForm"/>
+				
+				<h:panelGroup id="pGraficoItens" layout="block">
+					<p:chart type="line" model="#{relatorioVendasBean.lineModel}" style="height:300px;" rendered="#{relatorioVendasBean.lineModel != null}"/>
+					<p:chart id="grafico" type="pie" style="width:400px; height:300px" model="#{relatorioVendasBean.pieModel}" rendered="#{relatorioVendasBean.pieModel != null}"/>
+				</h:panelGroup> 
+				
+				<!--  <h:panelGroup id="pGraficoVenda" layout="block">
+					 <p:chart id="grafico1" type="pie" style="width:400px; height:300px" model="#{relatorioItensVendidosBean.pieModel}" rendered="#{relatorioItensVendidosBean.pieModel != null}"/> 
+				</h:panelGroup>
+					-->
+				
+			
+			</h:form>	
+		</p:panel>
+	</div>
+	</body>
+</html>

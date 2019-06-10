@@ -40,6 +40,8 @@ public class AutenticacaoBean {
 	public void iniciar() {
 		usuario = new Usuario();
 		usuario.setPessoa(new Pessoa());
+		//exibeUsuarioAtual();
+		//String usuariologadofront = usuarioLogado.getPessoa().toString();
 	}
 
 	public void autenticar() {
@@ -52,7 +54,11 @@ public class AutenticacaoBean {
 				return;
 			}
 			
+			
+//			Messages.addGlobalError("Seja Bem Vindo: " + getUsuarioLogado().getPessoa().getNome());
+//			Messages.addFlashGlobalError("Seja Bem Vindo: " + getUsuarioLogado().getPessoa().getNome());
 			Faces.redirect("./pages/inicio.xhtml");
+			
 		} catch (IOException erro) {
 			erro.printStackTrace();
 			Messages.addGlobalError(erro.getMessage());
@@ -63,7 +69,7 @@ public class AutenticacaoBean {
 
 		
 		try {
-			System.out.println("entrou");
+			//System.out.println("entrou");
 			usuario = new Usuario();
 			usuario.setPessoa(new Pessoa());
 			
@@ -75,5 +81,21 @@ public class AutenticacaoBean {
 			erro.printStackTrace();
 			Messages.addGlobalError(erro.getMessage());
 		}
+	}
+	
+	public void exibeUsuarioAtual() {
+		String usuarioExibe = null;
+		try {
+			
+//			AutenticacaoBean autenticacaoBean = Faces.getSessionAttribute("autenticacaoBean");
+//			usuarioExibe = autenticacaoBean.getUsuarioLogado().toString();
+			
+			Messages.addGlobalInfo("parcelas referentes a esta venda, foram excluidas!");
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			Messages.addGlobalError(e.getMessage());
+		}
+	//	return usuarioExibe;
 	}
 }

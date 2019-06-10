@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="r_ranking_vendas" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d8df3cf7-c028-4a1c-ad92-88f27826a717">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySql"/>
+	<subDataset name="ranking vendas" uuid="50c2f5ba-e075-4b82-91b7-2ee1f19e03a6">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySql"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT banco.produto.descricao as produto,
+		count(*) as quantidade
+from banco.itemvenda,
+	banco.produto
+where  banco.produto.codigo =  banco.itemvenda.produto_codigo  
+    GROUP by produto ]]>
+		</queryString>
+		<field name="produto" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="produto"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="produto"/>
+		</field>
+		<field name="quantidade" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.label" value="quantidade"/>
+		</field>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[SELECT banco.produto.descricao as produto,
+		count(*) as quantidade
+from banco.itemvenda,
+	banco.produto
+where  banco.produto.codigo =  banco.itemvenda.produto_codigo  
+    GROUP by produto 
+    order by quantidade desc
+    LIMIT 5]]>
+	</queryString>
+	<field name="produto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="produto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="produto"/>
+	</field>
+	<field name="quantidade" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.label" value="quantidade"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="180" height="20" uuid="c43cd61a-29c7-4099-9ddc-0d648f77a950"/>
+				<text><![CDATA[descricao]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="0" width="200" height="20" uuid="b92408fa-d85f-49a3-8219-cc1594a6d1d4"/>
+				<text><![CDATA[Quantidade]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="180" y="0" width="200" height="30" uuid="c9bc57ba-82d0-41f9-921a-06ea2347f6f8"/>
+				<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="180" height="31" uuid="3fedfad6-d472-40cd-ba18-e58c3abec759"/>
+				<textFieldExpression><![CDATA[$F{produto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="341" splitType="Stretch">
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="55" width="545" height="200" uuid="edba1bac-7ba2-42da-a16f-a7d322abad84"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<dataset>
+						<datasetRun subDataset="ranking vendas" uuid="4a3f2b2b-264b-4796-8690-cc264e6ca845">
+							<datasetParameter name="FILTER">
+								<datasetParameterExpression><![CDATA[$F{quantidade}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+					</dataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{produto}]]></seriesExpression>
+						<categoryExpression><![CDATA[0]]></categoryExpression>
+						<valueExpression><![CDATA[$F{quantidade}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>

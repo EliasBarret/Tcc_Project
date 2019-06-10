@@ -26,15 +26,19 @@
 		
 		<h:form>
 			<h:panelGrid columns="4">
+				
 				<p:outputLabel for="cpf" value="CPF:"/>
+				
 				<p:inputMask id="cpf" mask="999.999.999-99" size="16"
 					required="true" requiredMessage="O campo CPF é obrigatório"
 					value="#{autenticacaoBean.usuario.pessoa.cpf}" />
-
 				<p:outputLabel for="senha" value="Senha:" />
+				
 				<p:password id="senha" maxlength="8" size="17" required="true"
 					requiredMessage="O campo Senha é obrigatório"
 					value="#{autenticacaoBean.usuario.senha}" />
+					
+			
 			</h:panelGrid>
 			
 			<p:panel style="text-align: -webkit-center;">
@@ -43,7 +47,7 @@
 						actionListener="#{autenticacaoBean.autenticar}" style="width: 150px;"/>
 				</h:panelGrid>
 			</p:panel>
-	
+			
 		</h:form>
 	</p:dialog>
 </h:body>

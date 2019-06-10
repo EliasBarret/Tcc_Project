@@ -13,6 +13,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.omnifaces.util.Faces;
 import org.omnifaces.util.Messages;
 import org.primefaces.event.RowEditEvent;
@@ -32,7 +34,9 @@ import com.elias.vendas.domain.TipoDeVenda;
 import com.elias.vendas.domain.Usuario;
 import com.elias.vendas.domain.Venda;
 import com.elias.vendas.relatorio.ChamaReports;
+import com.elias.vendas.util.HibernateUtil;
 import com.elias.vendas.util.ImprimirDados;
+import com.mysql.jdbc.Connection;
 
 
 
@@ -58,7 +62,7 @@ public class VendaBean implements Serializable{
 	private BigDecimal troco;
 	private int numeroDeParcelas;
 	private BigDecimal parcela;
-	
+	//Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
 	
 	
 	
@@ -759,6 +763,28 @@ public class VendaBean implements Serializable{
 			Messages.addGlobalError("valor total não deve estar zerado");
 		}
 	}
-
-
+	
+	public void rankingVendaProduto() {
+	
+		
+	//	Connection conexao = HibernateUtil.getConnection();
+//		 Connection sessao = HibernateUtil.getConnection();
+		
+//		Query query = sessao.createQuery("from Venda where vendaid = :id ");
+//		query.setParameter("id", "123");
+//		List list = query.list();
+//		
+//		System.out.println(list);
+//		
+//		
+//		String hql = "from Produto where preco > :preco";
+//		  Query query = sessao.createQuery(hql);
+//		  query.setDouble("preco",25.0);
+//		  List results = query.list();
+		
+		VendaDAO vendaDao = new VendaDAO();
+		vendaDao.rankingVendaProduto();
+		
+		
+	}
 }

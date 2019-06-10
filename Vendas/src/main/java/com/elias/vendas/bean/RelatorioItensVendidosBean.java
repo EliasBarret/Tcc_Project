@@ -16,10 +16,13 @@ import org.primefaces.model.chart.Axis;
 import org.primefaces.model.chart.AxisType;
 import org.primefaces.model.chart.ChartSeries;
 import org.primefaces.model.chart.HorizontalBarChartModel;
+import org.primefaces.model.chart.PieChartModel;
 
 import com.elias.vendas.dao.ItemVendaDAO;
+import com.elias.vendas.dao.VendaDAO;
 import com.elias.vendas.domain.GraficoItemVenda;
 import com.elias.vendas.domain.ItemVenda;
+import com.elias.vendas.domain.Venda;
 
 
 
@@ -33,10 +36,20 @@ public class RelatorioItensVendidosBean implements Serializable{
 	private List<ItemVenda> itens;
 	private Date dataInicio = new Date(System.currentTimeMillis());
 	private Date dataFim  = new Date(System.currentTimeMillis());
-	
+	private PieChartModel pieModel;
 
 
 	
+
+	public PieChartModel getPieModel() {
+		return pieModel;
+	}
+
+
+	public void setPieModel(PieChartModel pieModel) {
+		this.pieModel = pieModel;
+	}
+
 
 	public Date getDataInicio() {
 		return dataInicio;
@@ -99,7 +112,33 @@ public class RelatorioItensVendidosBean implements Serializable{
 			erro.printStackTrace();
 		}
 		
+	}
+	
+	public void listarGrafico() {
+		ItemVendaDAO dao;
+		List<ItemVenda> lista;
+		try {
+			dao = new ItemVendaDAO();
+			lista  = dao.listar();
+			graficarItens(lista);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void graficarItens(List<ItemVenda> lista) {
+		pieModel = new PieChartModel();
+		
+		for (ItemVenda item: lista) {
+			pieModel.set(item.getProduto().toString(), item.getQuantidade());
+		}
+		
+		pieModel.setTitle("Grafico de produtos Mais Vendidos");
+		pieModel.setLegendPosition("e");
+		pieModel.setFill(false);
+		pieModel.setShowDataLabels(true);
+		pieModel.setDiameter(150);
+		
 	}	
-	
-	
 }

@@ -35,28 +35,10 @@ public class AutenticacaoListener implements PhaseListener {
 				return;
 			}
 			
-			if(paginaAtual.contains("usuarios.xhtml") || paginaAtual.contains("funcionarios.xhtml") ){
-				if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G'){	
-				}else{
-					Faces.navigate("/pages/principal.xhtml");
-					Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
-					return;
-				}
-			}
-			
-			if(paginaAtual.contains("produtos.xhtml") || paginaAtual.contains("fabricantes.xhtml") ){
-				if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G'){	
-				}else{
-					Faces.navigate("/pages/principal.xhtml");
-					Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
-					return;
-				}
-			}
-			
 			if(paginaAtual.contains("cidades.xhtml") || paginaAtual.contains("estados.xhtml") ){
 				if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G'){	
 				}else{
-					Faces.navigate("/pages/principal.xhtml");
+					Faces.navigate("/pages/inicio.xhtml");
 					Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
 					return;
 				}
@@ -65,7 +47,7 @@ public class AutenticacaoListener implements PhaseListener {
 			if(paginaAtual.contains("troca.xhtml") || paginaAtual.contains("financeiro.xhtml") ){
 				if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G'){	
 				}else{
-					Faces.navigate("/pages/principal.xhtml");
+					Faces.navigate("/pages/inicio.xhtml");
 					Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
 					return;
 				}
@@ -74,13 +56,154 @@ public class AutenticacaoListener implements PhaseListener {
 			if(paginaAtual.contains("cancelarVenda.xhtml")){
 				if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G'){	
 				}else{
-					Faces.navigate("/pages/principal.xhtml");
+					Faces.navigate("/pages/inicio.xhtml");
 					Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
 					return;
 				}
 			}
-			
-		
+			if(paginaAtual.contains("menuGG.xhtml")){
+				if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G'|| usuario.getTipo() == 'B'){	
+				}else{
+					Faces.navigate("/pages/inicio.xhtml");
+					Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+					return;
+				}
+			}
+			if(paginaAtual.contains("menuLocais.xhtml")){
+				if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G'|| usuario.getTipo() == 'B'){	
+				}else{
+					Faces.navigate("/pages/inicio.xhtml");
+					Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+					return;
+				}
+			}
+			if(paginaAtual.contains("menuRelatorio.xhtml")){
+				if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G'){	
+				}else{
+					Faces.navigate("/pages/inicio.xhtml");
+					Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+					return;
+				}
+			}
+			if(paginaAtual.contains("vendas.xhtml")){
+				if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G' || usuario.getTipo() == 'B'){	
+				}else{
+					Faces.navigate("/pages/inicio.xhtml");
+					Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+					return;
+				}
+			}if(paginaAtual.contains("cancelarVenda.xhtml")){
+			    if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G'){	
+			    }else{
+			        Faces.navigate("/pages/inicio.xhtml");
+			        Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+			        return;
+			    }
+			}
+			if(paginaAtual.contains("cidades.xhtml")){
+			    if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G' || usuario.getTipo() == 'B'){	
+			    }else{
+			        Faces.navigate("/pages/inicio.xhtml");
+			        Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+			        return;
+			    }
+			}
+			if(paginaAtual.contains("clientes.xhtml")){
+			    if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G' || usuario.getTipo() == 'B'){	
+			    }else{
+			        Faces.navigate("/pages/inicio.xhtml");
+			        Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+			        return;
+			    }
+			}
+			if(paginaAtual.contains("credario.xhtml")){
+			    if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G'){	
+			    }else{
+			        Faces.navigate("/pages/inicio.xhtml");
+			        Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+			        return;
+			    }
+			}
+			if(paginaAtual.contains("estados.xhtml")){
+			    if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G' || usuario.getTipo() == 'B'){	
+			    }else{
+			        Faces.navigate("/pages/inicio.xhtml");
+			        Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+			        return;
+			    }
+			}
+			if(paginaAtual.contains("fabricantes.xhtml")){
+			    if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G' || usuario.getTipo() == 'B'){	
+			    }else{
+			        Faces.navigate("/pages/inicio.xhtml");
+			        Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+			        return;
+			    }
+			}
+			if(paginaAtual.contains("financeiro.xhtml")){
+			    if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G'){	
+			    }else{
+			        Faces.navigate("/pages/inicio.xhtml");
+			        Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+			        return;
+			    }
+			}
+			if(paginaAtual.contains("funcionarios.xhtml")){
+			    if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G'){	
+			    }else{
+			        Faces.navigate("/pages/inicio.xhtml");
+			        Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+			        return;
+			    }
+			}
+			if(paginaAtual.contains("menuRelatorio.xhtml")){
+			    if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G'){	
+			    }else{
+			        Faces.navigate("/pages/inicio.xhtml");
+			        Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+			        return;
+			    }
+			}
+			if(paginaAtual.contains("pessoas.xhtml")){
+			    if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G' || usuario.getTipo() == 'B'){	
+			    }else{
+			        Faces.navigate("/pages/inicio.xhtml");
+			        Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+			        return;
+			    }
+			}
+			if(paginaAtual.contains("produtos.xhtml")){
+			    if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G' || usuario.getTipo() == 'B'){	
+			    }else{
+			        Faces.navigate("/pages/inicio.xhtml");
+			        Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+			        return;
+			    }
+			}
+			if(paginaAtual.contains("troca.xhtml")){
+			    if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G' || usuario.getTipo() == 'B'){	
+			    }else{
+			        Faces.navigate("/pages/inicio.xhtml");
+			        Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+			        return;
+			    }
+			}
+			if(paginaAtual.contains("usuarios.xhtml")){
+			    if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G'){	
+			    }else{
+			        Faces.navigate("/pages/inicio.xhtml");
+			        Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+			        return;
+			    }
+			}
+			if(paginaAtual.contains("vendas.xhtml")){
+			    if(usuario.getTipo() == 'A' || usuario.getTipo() == 'G' || usuario.getTipo() == 'B'){	
+			    }else{
+			        Faces.navigate("/pages/inicio.xhtml");
+			        Messages.addFlashGlobalError("Você não tem privilégios para entrar nesta seção!");
+			        return;
+			    }
+			}
 		}
 	}
 
