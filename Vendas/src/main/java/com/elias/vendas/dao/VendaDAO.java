@@ -50,7 +50,9 @@ public class VendaDAO extends GenericDAO<Venda>{
 	}
 	
 	public void rankingVendaProduto() {
-	      Transaction tx = null;
+	      
+		
+		Transaction tx = null;
 	      try{
 	         tx = sessao.beginTransaction();
 	         String sql = "SELECT prod.descricao as produto, " + 
@@ -66,8 +68,9 @@ public class VendaDAO extends GenericDAO<Venda>{
 
 	         for(Object object : data)  {
 	            Map row = (Map)object;
-	            System.out.print("Nome: " + row.get("produto")); 
-	            System.out.println(", Salario: " + row.get("quantidade")); 
+	          /*  System.out.print("Nome: " + row.get("produto")); 
+	            System.out.println(", Salario: " + row.get("quantidade")); */
+	            
 	         }
 	         tx.commit();
 	      }catch (HibernateException e) {

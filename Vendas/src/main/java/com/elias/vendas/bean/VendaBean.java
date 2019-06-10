@@ -7,14 +7,19 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.omnifaces.util.Faces;
 import org.omnifaces.util.Messages;
 import org.primefaces.event.RowEditEvent;
@@ -765,26 +770,35 @@ public class VendaBean implements Serializable{
 	}
 	
 	public void rankingVendaProduto() {
-	
-		
-	//	Connection conexao = HibernateUtil.getConnection();
-//		 Connection sessao = HibernateUtil.getConnection();
-		
-//		Query query = sessao.createQuery("from Venda where vendaid = :id ");
-//		query.setParameter("id", "123");
-//		List list = query.list();
-//		
-//		System.out.println(list);
-//		
-//		
-//		String hql = "from Produto where preco > :preco";
-//		  Query query = sessao.createQuery(hql);
-//		  query.setDouble("preco",25.0);
-//		  List results = query.list();
-		
-		VendaDAO vendaDao = new VendaDAO();
-		vendaDao.rankingVendaProduto();
 		
 		
+			Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
+			Transaction tx = null;
+		      try{
+		         tx = sessao.beginTransaction();
+		         String sql = "SELECT prod.descricao as produto, " + 
+						    "count(*) as quantidade " + 
+						    "from   banco.itemvenda item, " + 
+						    "banco.produto prod " + 
+						    "where  prod.codigo = item.produto_codigo " + 
+							"GROUP by produto "+
+						    "order by quantidade desc ";
+		         SQLQuery query = sessao.createSQLQuery(sql);
+		         query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+		         List data = query.list();
+
+		         for(Object object : data)  {
+		            Map row = (Map)object;
+		            System.out.print("Nome: " + row.get("produto")); 
+		            System.out.println(", Salario: " + row.get("quantidade")); 
+		            
+		         }
+		         tx.commit();
+		      }catch (HibernateException e) {
+		         if (tx!=null) tx.rollback();
+		         e.printStackTrace(); 
+		      }finally {
+		         sessao.close(); 
+		      }
 	}
 }
