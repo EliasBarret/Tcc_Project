@@ -11,6 +11,10 @@
 	<h:head>
 		<title>SCGV</title>
 		<h:outputStylesheet library="css" name="menuStyle.css" />
+		<h:outputStylesheet library="css" name="estilo.css" />
+	<!-- <h:outputStylesheet library="css" name="all.css"/> -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+		
 	</h:head>
 
 	<h:body style="background-color: gainsboro;">
@@ -18,10 +22,10 @@
 		<h1 align="center">SCGV - SISTEMA DE CONTROLE DE VENDAS</h1>
 		
 		
-		<p:panel>
-			<f:viewAction action="#{autenticacaoBean.exibeUsuarioAtual}" />
-				
+		<p:panel style="text-align: -webkit-center; background: center;">
+			<h:outputText value="Seja Bem Vindo: #{autenticacaoBean.usuarioLogadoNome}" />
 		</p:panel>
+		
 		
 		 <div>
 			<table align= "center">

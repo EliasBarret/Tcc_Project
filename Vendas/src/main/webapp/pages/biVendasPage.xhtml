@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//PT-BR" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition  xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
@@ -12,29 +12,54 @@
 	<h:head>			
 			<h:outputStylesheet library="css" name="menuStyle.css" />
 	</h:head>
-	
-	
-<!-- 	<body style="background-color: gainsboro; font-family: sans-serif;"> -->
+
 	<div>
 		<p:panel header="BI -Business intelligence ">
 			<h:form id="idGraficoForm">
-				<p:commandButton value="Graficar !" actionListener="#{biBean.listarGrafico()}" update=":idGraficoForm"/>
-				<p:commandButton value="Ranking test !" actionListener="#{vendaBean.rankingVendaProduto()}" update=":idGraficoForm"/>
+
 				
 				<h:panelGroup id="pGraficoItens" layout="block">
-					<p:chart type="line" model="#{biBean.lineModel}" style="height:300px;" rendered="#{biBean.lineModel != null}"/>
-					<p:chart id="grafico" type="pie" style="width:400px; height:300px" model="#{biBean.pieModel}" rendered="#{biBean.pieModel != null}"/>
-				</h:panelGroup> 
-				
-				<!--  <h:panelGroup id="pGraficoVenda" layout="block">
-					 <p:chart id="grafico1" type="pie" style="width:400px; height:300px" model="#{relatorioItensVendidosBean.pieModel}" rendered="#{relatorioItensVendidosBean.pieModel != null}"/> 
-				</h:panelGroup>
-					-->
-				
+				 
+					<p:chart id="grafico3" type="line" style="height:400px;" model="#{biBean.dateModel}" rendered="#{biBean.dateModel != null}"/>
 			
+					<p:panelGrid columns="4">
+						<p:chart id="grafico" type="pie" style="width:450px; height:300px" model="#{biBean.pieModel}" rendered="#{biBean.pieModel != null}"/>
+							
+							<p:panelGrid columns="2">
+								<p:outputLabel value="" />
+								<p:inputText value="" />	
+								
+								<p:outputLabel value="" />
+								<p:inputText value="" />
+								
+								<p:outputLabel value="" />
+								<p:inputText value="" />
+								
+								<p:outputLabel value="" />
+								<p:inputText value="" />
+								
+								<p:outputLabel value="" />
+								<p:inputText value="" />
+							</p:panelGrid>
+							
+						<p:chart id="grafico1" type="pie" style="width:450px; height:300px" model="#{biBean.pieModelVendedor}" rendered="#{biBean.pieModelVendedor != null}"/>
+							
+							<p:panelGrid columns="2">
+								<p:outputLabel value="Código da Venda:" />
+								<p:inputText value="" />	
+								
+								<p:outputLabel value="Código da Venda:" />
+								<p:inputText value="" />
+								
+								<p:outputLabel value="Código da Venda:" />
+								<p:inputText value="" />
+							</p:panelGrid>
+							
+					</p:panelGrid>	
+				</h:panelGroup> 
+
 			</h:form>	
 		</p:panel>
 	</div>
-	<!-- </body> -->
 	</ui:define>
 </ui:composition >

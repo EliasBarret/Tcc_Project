@@ -28,9 +28,9 @@
 						oncomplete="PF('dialogoPessoa').show();"
 						actionListener="#{pessoaBean.novo()}"
 						update=":formCadastro"/>
-						<p:commandButton value="Usuário" icon="" />
-						<p:commandButton value="Funcionário" icon=""/>
-						<p:commandButton value="Cliente" icon="" action="dialogoCliente.show()"/>	
+						<p:button value="Usuário" icon="" outcome="/pages/usuarios.xhtml"/>
+						<p:button value="Funcionário" icon="" outcome="/pages/funcionarios.xhtml"/>
+						<p:button value="Cliente" icon="" outcome="/pages/clientes.xhtml"/>	
 					</p:panel>	
 				</f:facet>
 				

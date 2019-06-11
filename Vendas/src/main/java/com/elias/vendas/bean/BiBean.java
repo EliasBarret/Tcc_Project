@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -12,7 +13,9 @@ import org.hibernate.HibernateException;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.primefaces.model.chart.AxisType;
 import org.primefaces.model.chart.BarChartModel;
+import org.primefaces.model.chart.DateAxis;
 import org.primefaces.model.chart.HorizontalBarChartModel;
 import org.primefaces.model.chart.LineChartModel;
 import org.primefaces.model.chart.LineChartSeries;
@@ -31,7 +34,9 @@ public class BiBean implements Serializable{
 	HorizontalBarChartModel model;
 	private BarChartModel barra;
 	private PieChartModel pieModel;
+	private PieChartModel pieModelVendedor;
 	private LineChartModel lineModel;
+	private LineChartModel dateModel;
 	
 	public BarChartModel getBarra() {
 		return barra;
@@ -51,8 +56,21 @@ public class BiBean implements Serializable{
 	public void setLineModel(LineChartModel lineModel) {
 		this.lineModel = lineModel;
 	}
+	public PieChartModel getPieModelVendedor() {
+		return pieModelVendedor;
+	}
+	public void setPieModelVendedor(PieChartModel pieModelVendedor) {
+		this.pieModelVendedor = pieModelVendedor;
+	}
+	public LineChartModel getDateModel() {
+		return dateModel;
+	}
+	public void setDateModel(LineChartModel dateModel) {
+		this.dateModel = dateModel;
+	}
+
 	
-	
+	@PostConstruct
 	public void listarGrafico() {
 		VendaDAO dao;
 		List<Venda> lista;
@@ -62,6 +80,8 @@ public class BiBean implements Serializable{
 			//graficar(lista);
 			graficoLinha(lista);
 			rankingVendaProduto();
+			rankingVendaVendedor();
+			graficoLinhaData(lista);
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -122,17 +142,18 @@ public class BiBean implements Serializable{
 					    "banco.produto prod " + 
 					    "where  prod.codigo = item.produto_codigo " + 
 						"GROUP by produto "+
-					    "order by quantidade desc ";
+					    "order by quantidade desc " +
+					    " LIMIT 5 ";
 	         SQLQuery query = sessao.createSQLQuery(sql);
 	         query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
 	         List data = query.list();
 
 	         for(Object object : data)  {
 	            Map row = (Map)object;
-	            System.out.print("Nome: " + row.get("produto")); 
-	            System.out.println(", Quantidade Vendida: " + row.get("quantidade")); 
+//	            System.out.print("Nome: " + row.get("produto")); 
+//	            System.out.println(", Quantidade Vendida: " + row.get("quantidade")); 
 	            
-	            pieModel.set(row.get("produto").toString(), (Number) row.get("quantidade"));
+	            pieModel.set(row.get("produto").toString().toUpperCase(), (Number) row.get("quantidade"));
 	            
 	            i++; 
 	         }
@@ -140,7 +161,7 @@ public class BiBean implements Serializable{
 	        
 	         System.out.println(i);
 	         
-	        pieModel.setTitle("Grafico de Venda por Cliente");
+	        pieModel.setTitle("Top 5 Produtos Mais Vendidos");
 	 		pieModel.setLegendPosition("e");
 	 		pieModel.setFill(false);
 	 		pieModel.setShowDataLabels(true);
@@ -153,5 +174,78 @@ public class BiBean implements Serializable{
 	         sessao.close(); 
 	      }
 }
+	public void rankingVendaVendedor() {
+		int i=0;
+		pieModelVendedor = new PieChartModel();
+		
+		
+		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
+		Transaction tx = null;
+	      try{
+	         tx = sessao.beginTransaction();
+	         String sql = 	"SELECT p.nome as nome, "+
+	        		 		"count(*) as quantidade "+
+			        		" from banco.itemvenda item, "+
+			        		"   	   banco.produto prod, "+
+			        		"   	   banco.Funcionario func, "+
+			        		"   	   banco.Pessoa p "+
+		        		  " where  prod.codigo = item.produto_codigo "+
+		        		  "   and  func.codigo = item.funcionario_codigo "+
+		        		  "   and  p.codigo = func.codigo "+
+		        		  " GROUP by nome "+
+		        		  " order by quantidade desc "+
+		        		  " LIMIT 5 ";	         
+	         SQLQuery query = sessao.createSQLQuery(sql);
+	         query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+	         List data = query.list();
+
+	         for(Object object : data)  {
+	            Map row = (Map)object;
+//	            System.out.print("Nome: " + row.get("nome")); 
+//	            System.out.println(", Quantidade Vendida: " + row.get("quantidade")); 
+	            
+	            pieModelVendedor.set(row.get("nome").toString(), (Number) row.get("quantidade"));
+	            
+	            i++; 
+	         }
+	         tx.commit();
+	        
+	         System.out.println(i);
+	         
+	         pieModelVendedor.setTitle("Top 5 Melhores Vendedores");
+	         pieModelVendedor.setLegendPosition("e");
+	         pieModelVendedor.setFill(false);
+	         pieModelVendedor.setShowDataLabels(true);
+	         pieModelVendedor.setDiameter(150);
+	 		
+	      }catch (HibernateException e) {
+	         if (tx!=null) tx.rollback();
+	         e.printStackTrace(); 
+	      }finally {
+	         sessao.close(); 
+	      }
+	}
+	
+	public void graficoLinhaData(List<Venda> lista) {
+		
+		dateModel = new LineChartModel();
+        LineChartSeries series1 = new LineChartSeries();
+		
+		for (Venda ven: lista) {
+			series1.setLabel("Venda");
+			series1.set(ven.getHorario(), ven.getValorTotal());
+		}
+		
+		dateModel.addSeries(series1);
+		dateModel.setZoom(true);
+		dateModel.setTitle("Grafico de Evolucao de vendas");
+		dateModel.setLegendPosition("e");
+		DateAxis axis = new DateAxis("Data da Venda");
+        axis.setTickAngle(-50);
+        axis.setTickFormat("%b %#d, %y");
+        
+        dateModel.getAxes().put(AxisType.X, axis);
+	}
+	
 
 }
