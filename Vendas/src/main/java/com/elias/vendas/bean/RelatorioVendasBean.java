@@ -212,12 +212,6 @@ public class RelatorioVendasBean implements Serializable{
 		lineModel.setTitle("Grafico de evolucao das vendas");
 		lineModel.setLegendPosition("e");
 	}
-	
-	public void chamaBI() {
-		BiUtil bi = new BiUtil();
-		
-		bi.chamaGrafico();
-	}
 
 	public void rankingVendaProduto() {
 		int i=0;

@@ -67,9 +67,6 @@ public class UsuarioBean implements Serializable{
 		}
 	}
 	
-	
-	// Polimorfismo
-	
 	public void novo(){
 		try{
 			usuario = new Usuario();
@@ -81,16 +78,6 @@ public class UsuarioBean implements Serializable{
 			erro.printStackTrace();
 		}
 	}
-	
-/*	//
-	public void novo(int id){
-		try {
-			
-		} catch (Exception e) {
-			
-		}
-		
-	}*/
 	
 	
 	public void salvar(){

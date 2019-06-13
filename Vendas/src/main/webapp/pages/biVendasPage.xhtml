@@ -23,38 +23,25 @@
 					<p:chart id="grafico3" type="line" style="height:400px;" model="#{biBean.dateModel}" rendered="#{biBean.dateModel != null}"/>
 			
 					<p:panelGrid columns="4">
-						<p:chart id="grafico" type="pie" style="width:450px; height:300px" model="#{biBean.pieModel}" rendered="#{biBean.pieModel != null}"/>
-							
-							<p:panelGrid columns="2">
-								<p:outputLabel value="" />
-								<p:inputText value="" />	
+						<p:chart id="grafico" type="pie" style="width:360px; height:270px" model="#{biBean.pieModel}" rendered="#{biBean.pieModel != null}"/>
+						<p:chart id="grafico1" type="pie" style="width:360px; height:270px" model="#{biBean.pieModelVendedor}" rendered="#{biBean.pieModelVendedor != null}"/>		
+						<p:chart id="grafico2" type="pie" style="width:360px; height:270px" model="#{biBean.pieModelCliente}" rendered="#{biBean.pieModelCliente != null}"></p:chart>
+								<!-- <p:panel header="Emitir grafico individual">
+							<p:panelGrid columns="3" >
+									<p:outputLabel  value="Produto" />
+									<p:inputMask value="" />
+									<p:button/>
+									
+									<p:outputLabel  value="Vendedor" />
+									<p:inputMask value="" />
+									<p:button/>
+									
+									<p:outputLabel  value="Cliente" />
+									<p:inputMask value="" />
+									<p:button/>
 								
-								<p:outputLabel value="" />
-								<p:inputText value="" />
-								
-								<p:outputLabel value="" />
-								<p:inputText value="" />
-								
-								<p:outputLabel value="" />
-								<p:inputText value="" />
-								
-								<p:outputLabel value="" />
-								<p:inputText value="" />
 							</p:panelGrid>
-							
-						<p:chart id="grafico1" type="pie" style="width:450px; height:300px" model="#{biBean.pieModelVendedor}" rendered="#{biBean.pieModelVendedor != null}"/>
-							
-							<p:panelGrid columns="2">
-								<p:outputLabel value="Código da Venda:" />
-								<p:inputText value="" />	
-								
-								<p:outputLabel value="Código da Venda:" />
-								<p:inputText value="" />
-								
-								<p:outputLabel value="Código da Venda:" />
-								<p:inputText value="" />
-							</p:panelGrid>
-							
+								</p:panel> -->
 					</p:panelGrid>	
 				</h:panelGroup> 
 
