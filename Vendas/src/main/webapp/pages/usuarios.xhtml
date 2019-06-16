@@ -57,33 +57,39 @@
 	</h:form>
 
 	<!--  janela de dialogo com prime faces  -->
-	<p:dialog widgetVar="dialogoUsuario" header="Novo Usuario"
+	<p:dialog widgetVar="dialogoUsuario" header="Novo Usuário"
 		closable="false" modal="true" resizable="false">
 		<h:form id="formCadastro">
-			<h:panelGrid columns="2">
-				<p:outputLabel value="Pessoa: " />
-				<p:selectOneMenu filter="true"  value="#{usuarioBean.usuario.pessoa}" 
-				converter="omnifaces.SelectItemsConverter">
-					<f:selectItem  noSelectionOption="true" itemLabel="Selecione uma pessoa" />
-					<f:selectItems value="#{usuarioBean.pessoas}" var="pessoa" 
-					itemValue="#{pessoa}" itemLabel="#{pessoa.nome} - #{pessoa.cpf}"/>
-				</p:selectOneMenu>
-
-				<p:outputLabel value="Senha:" />
-				<p:password value="#{usuarioBean.usuario.senha}" maxlength="20" size="10" />
-
-				<p:outputLabel value="Tipo:" />
+		
+		<p:fieldset legend="Dados De login">
+			<h:panelGrid columns="4">				
+					<p:outputLabel value="Pessoa: " />
+					<p:selectOneMenu filter="true"  value="#{usuarioBean.usuario.pessoa}" 
+					converter="omnifaces.SelectItemsConverter">
+						<f:selectItem  noSelectionOption="true" itemLabel="Selecione uma pessoa" />
+						<f:selectItems value="#{usuarioBean.pessoas}" var="pessoa" 
+						itemValue="#{pessoa}" itemLabel="#{pessoa.nome} - #{pessoa.cpf}"/>
+					</p:selectOneMenu>
+	
+					<p:outputLabel value="Senha:" />
+					<p:password value="#{usuarioBean.usuario.senha}" maxlength="20" size="10" />
+			</h:panelGrid>
+		</p:fieldset>	
+		
+			<br/>
+		<p:fieldset legend="Tipo" >
 				<p:selectOneRadio value="#{usuarioBean.usuario.tipo}" >
 					<f:selectItem itemValue="A" itemLabel="Administrador" />
 					<f:selectItem itemValue="G" itemLabel="Gerente" />
 					<f:selectItem itemValue="B" itemLabel="Balconista" />
 				</p:selectOneRadio>
-				
+		</p:fieldset>				<!-- <p:outputLabel value="Tipo:" /> -->
+			<br/>
+			<p:fieldset legend="Status">	
 				<p:outputLabel value="Ativo:" />
 				<p:selectBooleanCheckbox value="#{usuarioBean.usuario.ativo}" />
-				
-			</h:panelGrid>
-
+			</p:fieldset>	
+			<br/>
 			<h:panelGrid columns="2">
 				<p:commandButton value="Salvar"  actionListener="#{usuarioBean.salvar()}"
 				update=":mensagem :formCadastro :formTabela" />

@@ -18,7 +18,7 @@
 	<ui:define name="pagina">
 	
 	<h:form id="formTabela">
-		<p:panel style="font-size:30px" header="Pessoas">
+		<p:panel style="font-size:30px" header="Cadastro">
 			<!--  Criação de tabela com prime faces  -->
 			<p:dataTable  scrollable="true" scrollWidth="98,5%" semptyMessage="Nenhum registro encontrado"
 				rows="15" paginator="true" value="#{pessoaBean.pessoas}" var="cursorPessoa" >
@@ -108,54 +108,60 @@
 	</h:form>
 	
 	<!--  janela de dialogo com prime faces  -->
-	<p:dialog widgetVar="dialogoPessoa" header="Cadastro de Pessoa"
+	<p:dialog widgetVar="dialogoPessoa" header="Novo Cadastro"
 		closable="false" modal="true" resizable="false">
 		<h:form id="formCadastro">
-			<h:panelGrid columns="2">
-				<p:outputLabel value="Nome: "/>
-				<p:inputText maxlength="100"  value="#{pessoaBean.pessoa.nome}"/>
-				
-				<p:outputLabel for="cpf" value="CPF: " />
-				<p:inputMask id="cpf" mask="999.999.999-99" value="#{pessoaBean.pessoa.cpf}" />
-				
-				<p:outputLabel value="RG: " />
-				<p:inputText maxlength="14" value="#{pessoaBean.pessoa.rg}"/>
-				
-				<p:outputLabel value="Rua: " />
-				<p:inputText maxlength="80" value="#{pessoaBean.pessoa.rua}"/>
-				
-				<p:outputLabel value="Numero: " />
-				<p:inputText maxlength="6" value="#{pessoaBean.pessoa.numero}"/>
-				
-				<p:outputLabel value="Bairro: " />
-				<p:inputText maxlength="15" value="#{pessoaBean.pessoa.bairro}"/>
-				
-				<p:outputLabel value="CEP: " />
-				<p:inputText maxlength="15" value="#{pessoaBean.pessoa.cep}"/>
-				
-				<p:outputLabel value="Complemento: " />
-				<p:inputText maxlength="10" value="#{pessoaBean.pessoa.complemento}"/>
-				
-				<p:outputLabel for="telefone" value="Telefone: " />
-				<p:inputMask id="telefone" mask="(99)9999-9999" value="#{pessoaBean.pessoa.telefone}"/>
-				
-				<p:outputLabel for="celular" value="Celular: " />
-				<p:inputMask id="celular" mask="(99)99999-9999" value="#{pessoaBean.pessoa.celular}"/>
-				
-				<p:outputLabel value="Email: " />
-				<p:inputText maxlength="100" value="#{pessoaBean.pessoa.email}"/>
-				
-				<p:outputLabel value="Cidade: " />
-				<p:selectOneMenu filter="true" value="#{pessoaBean.pessoa.cidade}" converter="omnifaces.SelectItemsConverter">
-					<f:selectItem noSelectionOption="true" itemLabel="selecione uma cidade"/>
-					
-					<f:selectItems  value="#{pessoaBean.cidades}"
-					 var="cidade" itemValue="#{cidade}" itemLabel="#{cidade.nome}"/>
-				</p:selectOneMenu>
-
-			</h:panelGrid>
-
 			
+			<p:fieldset legend="Dados Pessoais">
+					<p:panelGrid columns="6">
+						<p:outputLabel value="Nome: "/>
+						<p:inputText maxlength="100" style="width: 200px"  value="#{pessoaBean.pessoa.nome}"/>
+						
+						<p:outputLabel for="cpf" value="CPF: " />
+						<p:inputMask id="cpf" mask="999.999.999-99" style="width: 200px" value="#{pessoaBean.pessoa.cpf}" />
+						
+						<p:outputLabel value="RG: " />
+						<p:inputText maxlength="14" style="width: 200px" value="#{pessoaBean.pessoa.rg}"/>
+						
+						<p:outputLabel for="telefone" value="Telefone: " />
+						<p:inputMask id="telefone" mask="(99)9999-9999" style="width: 200px" value="#{pessoaBean.pessoa.telefone}"/>
+						
+						<p:outputLabel for="celular" value="Celular: " />
+						<p:inputMask id="celular" mask="(99)99999-9999" style="width: 200px" value="#{pessoaBean.pessoa.celular}"/>
+						
+						<p:outputLabel value="Email: " />
+						<p:inputText maxlength="100" style="width: 200px" value="#{pessoaBean.pessoa.email}"/>
+					
+					</p:panelGrid>
+			</p:fieldset>
+			<br/>
+			<p:fieldset legend="Endereco">
+				<p:panelGrid columns="6">
+					<p:outputLabel value="Rua: " />
+					<p:inputText maxlength="80" style="width: 200px" value="#{pessoaBean.pessoa.rua}"/>
+					
+					<p:outputLabel value="Numero: " />
+					<p:inputText maxlength="6" style="width: 200px" value="#{pessoaBean.pessoa.numero}"/>
+					
+					<p:outputLabel value="Bairro: " />
+					<p:inputText maxlength="15" style="width: 200px" value="#{pessoaBean.pessoa.bairro}"/>
+					
+					<p:outputLabel value="CEP: " />
+					<p:inputText maxlength="15" style="width: 200px" value="#{pessoaBean.pessoa.cep}"/>
+					
+					<p:outputLabel value="Complemento: " />
+					<p:inputText maxlength="10" style="width: 200px" value="#{pessoaBean.pessoa.complemento}"/>
+					
+					<p:outputLabel value="Cidade: " />
+					<p:selectOneMenu filter="true" value="#{pessoaBean.pessoa.cidade}" converter="omnifaces.SelectItemsConverter">
+						<f:selectItem noSelectionOption="true" itemLabel="selecione uma cidade"/>
+						
+						<f:selectItems  value="#{pessoaBean.cidades}"
+						 var="cidade" itemValue="#{cidade}" itemLabel="#{cidade.nome}"/>
+					</p:selectOneMenu>
+				</p:panelGrid>	
+			</p:fieldset>
+			<br/>
 				<h:panelGrid columns="2" >
 					<p:commandButton value="Salvar" actionListener="#{pessoaBean.salvar()}"
 						update=":mensagem :formCadastro :formTabela"/>
@@ -165,57 +171,69 @@
 		</h:form>
 	</p:dialog>
 	
-	 <p:dialog header="Editar Pessoas" widgetVar="dialogoEditar" closable="false" modal="true" resizable="false">
+	 <p:dialog header="Editar Cadastro" widgetVar="dialogoEditar" closable="false" modal="true" resizable="false">
 	  <!--  <p:panel > -->
+		
+		
 		<h:form id="formEditar">
-		 
-			<h:panelGrid columns="2">
+		
+						<p:outputLabel value="Código: " />
+						<p:outputLabel value="#{pessoaBean.pessoa.codigo}"/>
+						<!-- <p:inputText disabled="true" value="#{pessoaBean.pessoa.codigo}"/> -->
+		<br/><br/>
+		
+		
+			<p:fieldset legend="Dados Pessoais">
+					<p:panelGrid columns="6">
+						
+						<p:outputLabel value="Nome: "/>
+						<p:inputText value="#{pessoaBean.pessoa.nome}" style="width: 200px"/>
+						
+						<p:outputLabel for="cpf" value="CPF: " />
+						<p:inputMask id="cpf" mask="999.999.999-99" style="width: 200px" value="#{pessoaBean.pessoa.cpf}" />
+						
+						<p:outputLabel value="RG: " />
+						<p:inputText maxlength="14" style="width: 200px" value="#{pessoaBean.pessoa.rg}"/>
+						
+		
+						<p:outputLabel for="telefone" value="Telefone: " />
+						<p:inputMask id="telefone" mask="(99)9999-9999" style="width: 200px" value="#{pessoaBean.pessoa.telefone}"/>
+						
+						<p:outputLabel for="celular" value="Celular: " />
+						<p:inputMask id="celular" mask="(99)99999-9999" style="width: 200px" value="#{pessoaBean.pessoa.celular}"/>
+						
+						<p:outputLabel value="Email: " />
+						<p:inputText maxlength="100" style="width: 200px" value="#{pessoaBean.pessoa.email}" required="true"/>
+					</p:panelGrid>	
+			</p:fieldset>
+				<br/>
+				 <p:fieldset legend="Endereco">
+					<p:panelGrid columns="6">
+						<p:outputLabel value="Rua: " />
+						<p:inputText maxlength="80" style="width: 200px" value="#{pessoaBean.pessoa.rua}"/>
+						
+						<p:outputLabel value="Numero: " />
+						<p:inputText maxlength="6" style="width: 200px" value="#{pessoaBean.pessoa.numero}"/>
+						
+						<p:outputLabel value="Bairro: " />
+						<p:inputText maxlength="15" style="width: 200px" value="#{pessoaBean.pessoa.bairro}"/>
+						
+						<p:outputLabel value="CEP: " />
+						<p:inputText maxlength="15" style="width: 200px" value="#{pessoaBean.pessoa.cep}"/>
+						
+						<p:outputLabel value="Complemento: " />
+						<p:inputText maxlength="10" style="width: 200px" value="#{pessoaBean.pessoa.complemento}"/>
+					</p:panelGrid>
+				 </p:fieldset>
 				
-				<p:outputLabel value="Código: "/>
-				<p:inputText disabled="true" value="#{pessoaBean.pessoa.codigo}"/>
-				
-				<p:outputLabel value="Nome: "/>
-				<p:inputText value="#{pessoaBean.pessoa.nome}"/>
-				
-				<p:outputLabel for="cpf" value="CPF: " />
-				<p:inputMask id="cpf" mask="999.999.999-99" value="#{pessoaBean.pessoa.cpf}" />
-				
-				<p:outputLabel value="RG: " />
-				<p:inputText maxlength="14" value="#{pessoaBean.pessoa.rg}"/>
-				
-				<p:outputLabel value="Rua: " />
-				<p:inputText maxlength="80" value="#{pessoaBean.pessoa.rua}"/>
-				
-				<p:outputLabel value="Numero: " />
-				<p:inputText maxlength="6" value="#{pessoaBean.pessoa.numero}"/>
-				
-				<p:outputLabel value="Bairro: " />
-				<p:inputText maxlength="15" value="#{pessoaBean.pessoa.bairro}"/>
-				
-				<p:outputLabel value="CEP: " />
-				<p:inputText maxlength="15" value="#{pessoaBean.pessoa.cep}"/>
-				
-				<p:outputLabel value="Complemento: " />
-				<p:inputText maxlength="10" value="#{pessoaBean.pessoa.complemento}"/>
-				
-				<p:outputLabel for="telefone" value="Telefone: " />
-				<p:inputMask id="telefone" mask="(99)9999-9999" value="#{pessoaBean.pessoa.telefone}"/>
-				
-				<p:outputLabel for="celular" value="Celular: " />
-				<p:inputMask id="celular" mask="(99)99999-9999" value="#{pessoaBean.pessoa.celular}"/>
-				
-				<p:outputLabel value="Email: " />
-				<p:inputText maxlength="100" value="#{pessoaBean.pessoa.email}" 
-					required="true"
-				/>
-				
+				<br/>
 				<!-- <p:outputLabel value="Cidade"/>
 				<h:inputText  value="#{pessoaBean.pessoa.cidade}"/> -->
-				<h:panelGrid columns="2">
+				<h:panelGrid columns="2" style="align-text">
 				 	<p:commandButton value="Editar" actionListener="#{pessoaBean.editarPessoa()}" oncomplete="PF('dialogoEditar').hide();" update=":mensagem :formEditar :formTabela"/>
 					<p:commandButton value="Fechar" oncomplete="PF('dialogoEditar').hide();" />
 				</h:panelGrid>
-			</h:panelGrid>
+		
 		</h:form>
 	  <!-- </p:panel> -->
 	</p:dialog>

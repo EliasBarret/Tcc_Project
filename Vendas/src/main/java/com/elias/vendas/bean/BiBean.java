@@ -22,6 +22,7 @@ import org.primefaces.model.chart.LineChartSeries;
 import org.primefaces.model.chart.PieChartModel;
 
 import com.elias.vendas.dao.VendaDAO;
+import com.elias.vendas.domain.Bi;
 import com.elias.vendas.domain.Venda;
 import com.elias.vendas.util.BiUtil;
 import com.elias.vendas.util.HibernateUtil;
@@ -29,7 +30,7 @@ import com.elias.vendas.util.HibernateUtil;
 @SuppressWarnings("serial")
 @ManagedBean
 @ViewScoped
-public class BiBean implements Serializable{
+public class BiBean extends Bi implements Serializable{
 	
 	HorizontalBarChartModel model;
 	private BarChartModel barra;
@@ -99,6 +100,7 @@ public class BiBean implements Serializable{
 			rankingVendaVendedor();
 			rankingVendaCliente();
 			graficoLinhaData(lista);
+			//graficoLinhaDatass();
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -203,7 +205,7 @@ public class BiBean implements Serializable{
 			        		"   	   banco.Pessoa p "+
 		        		  " where  prod.codigo = item.produto_codigo "+
 		        		  "   and  func.codigo = item.funcionario_codigo "+
-		        		  "   and  p.codigo = func.codigo "+
+		        		  "   and  p.codigo = func.pessoa_codigo "+
 		        		  " GROUP by nome "+
 		        		  " order by quantidade desc "+
 		        		  " LIMIT 5 ";	         

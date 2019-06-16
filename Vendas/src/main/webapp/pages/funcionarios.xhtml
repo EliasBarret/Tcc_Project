@@ -53,26 +53,31 @@
 	</h:form>
 
 	<!--  janela de dialogo com prime faces  -->
-	<p:dialog widgetVar="dialogoFuncionario" header="Novo Funcionario"
+	<p:dialog widgetVar="dialogoFuncionario" header="Novo Funcionário"
 		closable="false" modal="true" resizable="false">
 		<h:form id="formCadastro">
-			<h:panelGrid columns="2">
-				<p:outputLabel value="Pessoa: " />
-				<p:selectOneMenu filter="true"  value="#{funcionarioBean.funcionario.pessoa}" 
-				converter="omnifaces.SelectItemsConverter">
-					<f:selectItem  noSelectionOption="true" itemLabel="Selecione uma pessoa" />
-					<f:selectItems value="#{funcionarioBean.pessoas}" var="pessoa" 
-					itemValue="#{pessoa}" itemLabel="#{pessoa.nome} - #{pessoa.cpf}"/>
-				</p:selectOneMenu>
-
-				<p:outputLabel value="Carteira de trabalho:" />
-				<p:inputText value="#{funcionarioBean.funcionario.carteiraTrabalho}" maxlength="20" size="10" />
-
-				
-				<p:outputLabel value="Data de Admissão:" />
-				<p:calendar value="#{funcionarioBean.funcionario.dataAdmissao}"/>
-				
-			</h:panelGrid>
+			<p:fieldset legend="Dados Pessoais">
+				<h:panelGrid columns="2">
+					<p:outputLabel value="Pessoa: " />
+					<p:selectOneMenu filter="true"  value="#{funcionarioBean.funcionario.pessoa}" 
+					converter="omnifaces.SelectItemsConverter">
+						<f:selectItem  noSelectionOption="true" itemLabel="Selecione uma pessoa" />
+						<f:selectItems value="#{funcionarioBean.pessoas}" var="pessoa" 
+						itemValue="#{pessoa}" itemLabel="#{pessoa.nome} - #{pessoa.cpf}"/>
+					</p:selectOneMenu>
+				</h:panelGrid>
+			</p:fieldset>
+			<br />
+			<p:fieldset legend="Dados da admissão">
+				<h:panelGrid columns="4">
+					<p:outputLabel value="Carteira de trabalho:" />
+					<p:inputText value="#{funcionarioBean.funcionario.carteiraTrabalho}" maxlength="20" size="10" />
+	
+					<p:outputLabel value="Data de Admissão:" />
+					<p:calendar value="#{funcionarioBean.funcionario.dataAdmissao}"/>
+				</h:panelGrid>
+			</p:fieldset>
+			<br />	
 
 			<h:panelGrid columns="2">
 				<p:commandButton value="Salvar"  actionListener="#{funcionarioBean.salvar()}"

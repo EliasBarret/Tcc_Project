@@ -1,52 +1,80 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//PT-BR" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	template="principal.xhtml">
-	
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets" template="principal.xhtml">
+
 	<ui:define name="pagina">
 
-	<h:head>			
+		<h:head>
 			<h:outputStylesheet library="css" name="menuStyle.css" />
-	</h:head>
+		</h:head>
 
-	<div>
-		<p:panel header="BI -Business intelligence ">
-			<h:form id="idGraficoForm">
+		<div>
+			<p:panel header="BI - Vendas ">
+				<h:form id="idGraficoForm">
 
-				
-				<h:panelGroup id="pGraficoItens" layout="block">
-				 
-					<p:chart id="grafico3" type="line" style="height:400px;" model="#{biBean.dateModel}" rendered="#{biBean.dateModel != null}"/>
-			
-					<p:panelGrid columns="4">
-						<p:chart id="grafico" type="pie" style="width:360px; height:270px" model="#{biBean.pieModel}" rendered="#{biBean.pieModel != null}"/>
-						<p:chart id="grafico1" type="pie" style="width:360px; height:270px" model="#{biBean.pieModelVendedor}" rendered="#{biBean.pieModelVendedor != null}"/>		
-						<p:chart id="grafico2" type="pie" style="width:360px; height:270px" model="#{biBean.pieModelCliente}" rendered="#{biBean.pieModelCliente != null}"></p:chart>
-								<!-- <p:panel header="Emitir grafico individual">
-							<p:panelGrid columns="3" >
-									<p:outputLabel  value="Produto" />
-									<p:inputMask value="" />
-									<p:button/>
-									
-									<p:outputLabel  value="Vendedor" />
-									<p:inputMask value="" />
-									<p:button/>
-									
-									<p:outputLabel  value="Cliente" />
-									<p:inputMask value="" />
-									<p:button/>
-								
-							</p:panelGrid>
-								</p:panel> -->
-					</p:panelGrid>	
-				</h:panelGroup> 
 
-			</h:form>	
-		</p:panel>
-	</div>
+					<h:panelGroup id="pGraficoItens" layout="block">
+
+						<p:chart id="grafico3" type="line" style="height:400px;"
+							model="#{biBean.dateModel}"
+							rendered="#{biBean.dateModel != null}" />
+
+						<p:panelGrid columns="4">
+							<p:chart id="grafico" type="pie"
+								style="width:460px; height:270px" model="#{biBean.pieModel}"
+								rendered="#{biBean.pieModel != null}" />
+							<p:chart id="grafico1" type="pie"
+								style="width:460px; height:270px"
+								model="#{biBean.pieModelVendedor}"
+								rendered="#{biBean.pieModelVendedor != null}" />
+							<p:chart id="grafico2" type="pie"
+								style="width:460px; height:270px"
+								model="#{biBean.pieModelCliente}"
+								rendered="#{biBean.pieModelCliente != null}" />
+
+							<p:commandButton value="Grafico"
+								actionListener="#{funcionarioBean.novo()}"
+								oncomplete="PF('DialogoGraficoPessoa').show();" />
+						</p:panelGrid>
+					</h:panelGroup>
+				</h:form>
+			</p:panel>
+		</div>
+
+		<p:dialog widgetVar="DialogoGraficoPessoa"
+			header="Grafico de Eficiencia de Venda do vendedor" modal="true"
+			resizable="false" style="text-align: -webkit-center;">
+			<h:form id="formModal">
+				<p:panelGrid columns="3" >
+
+					<p:outputLabel value="Funcionario: " />
+					<p:selectOneMenu filter="true" value="#{biBean.funcionario}"
+						converter="omnifaces.SelectItemsConverter">
+						<f:selectItem noSelectionOption="true"
+							itemLabel="selecione uma cidade" />
+						<f:selectItems value="#{funcionarioBean.funcionarios}"
+							var="funcionario" itemValue="#{codigo}"
+							itemLabel="#{funcionario.pessoa.nome}" />
+					</p:selectOneMenu>
+
+					<p:commandButton value="Gerar"
+						actionListener="#{biBean.graficoLinhaDatass()}"
+						update=":formModal" />
+				</p:panelGrid>
+				<br /><br />
+				<p:chart id="grafico3" type="line" style="height:400px; width:800px"
+					model="#{biBean.dateModelFucionario}"
+					rendered="#{biBean.dateModelFucionario != null}" />
+			</h:form>
+
+
+		</p:dialog>
+
+
+
 	</ui:define>
-</ui:composition >
+</ui:composition>

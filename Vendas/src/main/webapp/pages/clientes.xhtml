@@ -64,22 +64,28 @@
 	<p:dialog widgetVar="dialogoCliente" header="Novo Cliente"
 		closable="false" modal="true" resizable="false">
 		<h:form id="formCadastro">
-			<h:panelGrid columns="2">
-				<p:outputLabel value="Pessoa: " />
-				<p:selectOneMenu filter="true" value="#{clienteBean.cliente.pessoa}" 
-				converter="omnifaces.SelectItemsConverter">
-					<f:selectItem noSelectionOption="true" itemLabel="Selecione uma pessoa" />
-					<f:selectItems value="#{clienteBean.pessoas}" var="pessoa" 
-					itemValue="#{pessoa}" itemLabel="#{pessoa.nome} - #{pessoa.cpf}"/>
-				</p:selectOneMenu>
-
-				<p:outputLabel value="Data:" />
-				<p:calendar value="#{clienteBean.cliente.dataCadastro}"/>
-
-				<p:outputLabel value="Ativo:" />
-				<p:selectBooleanCheckbox value="#{clienteBean.cliente.liberado}"/>
-			</h:panelGrid>
-
+			<p:fieldset legend="Dados Pessoais">
+				<h:panelGrid columns="2">
+					<p:outputLabel value="Pessoa: " />
+					<p:selectOneMenu filter="true" value="#{clienteBean.cliente.pessoa}" 
+					converter="omnifaces.SelectItemsConverter">
+						<f:selectItem noSelectionOption="true" itemLabel="Selecione uma pessoa" />
+						<f:selectItems value="#{clienteBean.pessoas}" var="pessoa" 
+						itemValue="#{pessoa}" itemLabel="#{pessoa.nome} - #{pessoa.cpf}"/>
+					</p:selectOneMenu>
+				</h:panelGrid>
+			</p:fieldset>
+			<br />
+			<p:fieldset legend="Status">
+			     <h:panelGrid columns="4">
+					<p:outputLabel value="Ativo:" />
+					<p:selectBooleanCheckbox value="#{clienteBean.cliente.liberado}"/>
+					
+					<p:outputLabel value="Data:" />
+					<p:calendar value="#{clienteBean.cliente.dataCadastro}"/>	
+			     </h:panelGrid>
+			</p:fieldset>
+			<br />
 			<h:panelGrid columns="2">
 				<p:commandButton value="Salvar"  actionListener="#{clienteBean.salvar()}"
 				update=":mensagem :formCadastro :formTabela" />

@@ -14,6 +14,7 @@ import com.elias.vendas.dao.CidadeDAO;
 import com.elias.vendas.dao.PessoaDAO;
 import com.elias.vendas.dao.UsuarioDAO;
 import com.elias.vendas.domain.Cidade;
+import com.elias.vendas.domain.Funcionario;
 import com.elias.vendas.domain.Pessoa;
 import com.elias.vendas.domain.Produto;
 import com.elias.vendas.domain.Usuario;
@@ -31,6 +32,7 @@ public class PessoaBean implements Serializable{
 	
 	private List<Pessoa> pessoas;
 	private List<Cidade> cidades;
+	private List<Funcionario> funcionarios;
 	
 
 	
@@ -55,6 +57,12 @@ public class PessoaBean implements Serializable{
 	
 	public void setCidades(List<Cidade> cidades) {
 		this.cidades = cidades;
+	}
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
+	}
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
 	}
 
 
@@ -151,4 +159,5 @@ public class PessoaBean implements Serializable{
 			erro.printStackTrace();
 		}
 	}
+	
 }
